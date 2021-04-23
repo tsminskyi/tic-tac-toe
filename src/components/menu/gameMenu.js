@@ -1,0 +1,39 @@
+import { connect } from 'react-redux';
+import mapStateToProps from '../../redux/mapStateToProps';
+import mapDispatchToProps from '../../redux/mapDispatchToProps';
+import GameBoard from './setBoardSize';
+import GameModes from './setMode';
+import PlayingField from '../field/playingField';
+import React from 'react'
+import isEmpty from "../../service/isEmpty"
+
+function start(value) {
+
+    if (value.playingField != null && value.mode != null) {
+        value.startNewGame()
+    }
+
+}
+
+function GameMenu(props) {
+    if (props.newGame) {
+        return (
+            <div className="conteiner">
+                < PlayingField />
+            </div>
+        )
+
+    }
+    else {
+        return (
+            <div className="conteiner">
+                <GameBoard />
+                <GameModes />
+                <button onClick={() => start(props)}>New Game</button>
+            </div>
+        )
+
+    }
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(GameMenu);
