@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import mapDispatchToProps from '../../redux/mapDispatchToProps'
-import mapStateToProps from '../../redux/mapStateToProps'
+// import mapStateToProps from '../../redux/mapStateToProps'
 import modeEnum from "../../enum/gameMode"
 function GameModes(props) {
 

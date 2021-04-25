@@ -1,2 +1,2 @@
-const symbolEnum = Object.freeze({cross: "1", zero: "0", emptiness: "2"});
+const symbolEnum = Object.freeze({cross: "X", zero: "O", emptiness: " "});
 export default  symbolEnum

@@ -5,8 +5,8 @@ const mapStateToProps = (state) => {
         mode: state.mode,
         newGame: state.newGame,
         isFirstPlayer: state.isFirstPlayer,
-        firstSymbol: state.firstSymbol,
-        secondSymbol: state.secondSymbol
+        playerFirstSymbol: state.playerFirstSymbol,
+        playerSecondSymbol: state.playerSecondSymbol
     }
 }
 export default mapStateToProps;

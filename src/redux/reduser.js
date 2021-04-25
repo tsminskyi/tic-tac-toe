@@ -16,8 +16,8 @@ export const reducer = function (state, action) {
 
             let newfieldValue = JSON.parse(JSON.stringify(state.playingField))
             let changeSymbol = null;
-            state.isFirstPlayer ? changeSymbol = state.firstSymbol : changeSymbol = state.secondSymbol;
-            newfieldValue[action.payload[0]][action.payload[1]] = changeSymbol;
+            state.isFirstPlayer ? changeSymbol = state.playerFirstSymbol : changeSymbol = state.playerSecondSymbol;
+            newfieldValue[action.payload.collIndex][action.payload.rowIndex] = changeSymbol;
             return {
                 ...state, playingField: newfieldValue, isFirstPlayer: !state.isFirstPlayer
             }
@@ -26,6 +26,22 @@ export const reducer = function (state, action) {
         case "SETTING_MODE": {
             return {
                 ...state, mode: action.payload
+            }
+        }
+
+        case "SETTING_TURN": {
+            return {
+                ...state, isFirstPlayer: action.payload
+            }
+        }
+
+        case "SETTING_PLAYER_SYMBOL": {
+
+            let second;
+            action.payload === symbolEnum.cross ? second = symbolEnum.zero : second = symbolEnum.cross
+            console.log(second)
+            return {
+                ...state, playerFirstSymbol: action.payload, playerSecondSymbol: second
             }
         }
 

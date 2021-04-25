@@ -1,18 +1,18 @@
 import modeEnum from "../enum/gameMode"
 import pveMode from "../logic/pveMode"
 
-function gameLogic(props) {
+function gameLogic(props, row, coll) {
 
     switch (props.mode) {
         case modeEnum.pvp:
 
-            break;
+            return
         case modeEnum.pve:
-            pveMode(props);
-            break;
+            return pveMode(props, row, coll);
+
         case modeEnum.eve:
 
-            break;
+            return
         default:
             break;
     }

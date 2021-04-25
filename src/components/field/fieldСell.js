@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 import mapDispatchToProps from "../../redux/mapDispatchToProps"
 import mapStateToProps from "../../redux/mapStateToProps"
 import symbolEnum from "../../enum/gameSymbols"
-import gameLogic from "../../logic/gameLogic"
+// import gameLogic from "../../logic/gameLogic"
+// function click(props, index) {
+//     props.gameMove(props.index)
+//     gameLogic(props, index.rowIndex, index.collIndex);
+// }
 
 function FieldСell(props) {
 
@@ -13,13 +17,13 @@ function FieldСell(props) {
     if (props.value === symbolEnum.cross) {
         return (
             <div style={{ width: widthCell + "%", height: widthCell + "%" }}>
-                <img src={times} />
+                <img src={times} alt="" />
             </div>)
     }
     if (props.value === symbolEnum.zero) {
         return (
             <div style={{ width: widthCell + "%", height: widthCell + "%" }}>
-                <img src={circle} />
+                <img src={circle} alt="" />
             </div>)
     }
 
