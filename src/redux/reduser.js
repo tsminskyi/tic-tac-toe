@@ -1,4 +1,6 @@
 import symbolEnum from "../enum/gameSymbols"
+import ruleEnum from "../enum/gameRules"
+import boardSizeEnum from "../enum/gameBoardSize"
 export const reducer = function (state, action) {
 
     switch (action.type) {
@@ -7,8 +9,15 @@ export const reducer = function (state, action) {
 
             let value = symbolEnum.emptiness;
             let arr = new Array(Number(action.payload)).fill(new Array(Number(action.payload)).fill(value));
+
+            let setRule = null;
+            switch (action.payload) {
+                case boardSizeEnum.medium: setRule = ruleEnum.renju; break;
+                case boardSizeEnum.large: setRule = ruleEnum.renjuHard; break;
+                default: setRule = ruleEnum.classic; break;
+            }
             return {
-                ...state, size: action.payload, playingField: arr
+                ...state, size: action.payload, playingField: arr, gameRule: setRule
             }
         }
 
@@ -17,7 +26,7 @@ export const reducer = function (state, action) {
             let newfieldValue = JSON.parse(JSON.stringify(state.playingField))
             let changeSymbol = null;
             state.isFirstPlayer ? changeSymbol = state.playerFirstSymbol : changeSymbol = state.playerSecondSymbol;
-            newfieldValue[action.payload.collIndex][action.payload.rowIndex] = changeSymbol;
+            newfieldValue[action.payload.rowIndex][action.payload.collIndex] = changeSymbol;
             return {
                 ...state, playingField: newfieldValue, isFirstPlayer: !state.isFirstPlayer
             }
@@ -39,7 +48,6 @@ export const reducer = function (state, action) {
 
             let second;
             action.payload === symbolEnum.cross ? second = symbolEnum.zero : second = symbolEnum.cross
-            console.log(second)
             return {
                 ...state, playerFirstSymbol: action.payload, playerSecondSymbol: second
             }
@@ -47,7 +55,19 @@ export const reducer = function (state, action) {
 
         case "NEW_GAME": {
             return {
-                ...state, newGame: action.payload
+                ...state, stateGame: action.payload
+            }
+        }
+
+        case "SETTING_WIN_CELL": {
+            return {
+                ...state, winCell: action.payload
+            }
+        }
+
+        case "END_GAME": {
+            return {
+                 stateGame: action.payload
             }
         }
 

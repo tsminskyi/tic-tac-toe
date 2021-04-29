@@ -4,34 +4,90 @@ import { connect } from 'react-redux'
 import mapDispatchToProps from "../../redux/mapDispatchToProps"
 import mapStateToProps from "../../redux/mapStateToProps"
 import symbolEnum from "../../enum/gameSymbols"
-// import gameLogic from "../../logic/gameLogic"
-// function click(props, index) {
-//     props.gameMove(props.index)
-//     gameLogic(props, index.rowIndex, index.collIndex);
-// }
+import modeEnum from "../../enum/gameMode"
+import winIndex from "../../logic/winLogic"
+
+
+function click(props) {
+
+    props.gameMove(props.index)
+    props.setWinCell(winIndex(props, props.index));
+
+}
+
 
 function FieldСell(props) {
 
-    const widthCell = Math.fround(100 / props.playingField[0].length);
 
-    if (props.value === symbolEnum.cross) {
-        return (
-            <div style={{ width: widthCell + "%", height: widthCell + "%" }}>
-                <img src={times} alt="" />
-            </div>)
+    switch (props.mode) {
+        case modeEnum.pvp: {
+            if (props.value !== symbolEnum.emptiness) {
+
+
+                return (
+                    <div style={{ width: props.style.size, height: props.style.size, backgroundColor: props.style.backgroundColor }}>
+                        <img src={props.value === symbolEnum.zero ? circle : times} alt="" />
+                    </div>)
+            }
+
+            if (props.winCell != null) {
+                return (
+                    <div style={{ width: props.style.size, height: props.style.size }}>
+
+                    </div>
+                )
+            }
+
+            return (
+                <div onClick={() => click(props)} style={{ width: props.style.size, height: props.style.size }}>
+
+                </div>
+            )
+        }
+
+        case modeEnum.pve: {
+            if (props.value !== symbolEnum.emptiness) {
+
+
+                return (
+                    <div style={{ width: props.style.size, height: props.style.size, backgroundColor: props.style.backgroundColor }}>
+                        <img src={props.value === symbolEnum.zero ? circle : times} alt="" />
+                    </div>)
+            }
+
+            if (props.winCell != null || props.isFirstPlayer) {
+                return (
+                    <div style={{ width: props.style.size, height: props.style.size }}>
+
+                    </div>
+                )
+            }
+
+            return (
+                <div onClick={() => click(props)} style={{ width: props.style.size, height: props.style.size }}>
+
+                </div>
+            )
+        }
+
+        default: {
+            if (props.value !== symbolEnum.emptiness) {
+
+
+                return (
+                    <div style={{ width: props.style.size, height: props.style.size, backgroundColor: props.style.backgroundColor }}>
+                        <img src={props.value === symbolEnum.zero ? circle : times} alt="" />
+                    </div>)
+            }
+
+            return (
+                <div style={{ width: props.style.size, height: props.style.size }}>
+
+                </div>
+            )
+        }
+
     }
-    if (props.value === symbolEnum.zero) {
-        return (
-            <div style={{ width: widthCell + "%", height: widthCell + "%" }}>
-                <img src={circle} alt="" />
-            </div>)
-    }
-
-    return (
-        <div onClick={() => props.gameMove(props.index)} style={{ width: widthCell + "%", height: widthCell + "%" }}>
-
-        </div>
-    )
 
 
 }

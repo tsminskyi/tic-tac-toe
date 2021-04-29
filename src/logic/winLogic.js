@@ -1,22 +1,23 @@
-function isWin(arr, row, coll, symbol) {
+import leftPlane from "./planeСheck/leftPlane"
+import rightPlane from "./planeСheck/rightPlane"
+import horizontalPlane from "./planeСheck/horizontalPlane"
+import verticalPlane from "./planeСheck/verticalPlane"
 
-    console.log(arr)
-    console.log(row)
-    console.log(coll)
-    console.log(symbol)
+function winIndex(props, index) {
 
-    // if ((row <= arr.length && row >= 0)) {
+    let symbol;
+    props.isFirstPlayer ? symbol = props.playerFirstSymbol : symbol = props.playerSecondSymbol
+    const arrLines = [leftPlane(props, index, symbol), rightPlane(props, index, symbol), horizontalPlane(props, index, symbol), verticalPlane(props, index, symbol)]
+    let winIndex = [];
+    arrLines.forEach(element => {
 
-    //     if ((coll <= arr[0].length && coll >= 0)) {
+        if (element.length >= props.gameRule - 1) {
+            winIndex = winIndex.concat(element)
+        }
 
-    //         console.log(arr[row][coll])
-    //         if (symbol == arr[row][coll]) {
-
-    //             return isWin(arr, row + 1, coll, symbol) + 1;
-    //         }
-    //         return
-    //     }
-    // }
-
+    });
+    winIndex = winIndex.concat(index)
+    // var unionIndex = Array.from(new Set(winIndex.map(JSON.stringify))).map(JSON.parse);
+    return winIndex.length >= props.gameRule - 1 ? winIndex : null
 }
-export default isWin;
+export default winIndex;
