@@ -18,9 +18,9 @@ function click(props) {
 
 function FieldСell(props) {
 
-
     switch (props.mode) {
         case modeEnum.pvp: {
+            
             if (props.value !== symbolEnum.emptiness) {
 
 
@@ -55,7 +55,7 @@ function FieldСell(props) {
                     </div>)
             }
 
-            if (props.winCell != null || props.isFirstPlayer) {
+            if (props.winCell != null || !props.isFirstPlayer) {
                 return (
                     <div style={{ width: props.style.size, height: props.style.size }}>
 

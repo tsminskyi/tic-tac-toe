@@ -1,13 +1,17 @@
-import leftPlane from "./planeСheck/leftPlane"
-import rightPlane from "./planeСheck/rightPlane"
-import horizontalPlane from "./planeСheck/horizontalPlane"
-import verticalPlane from "./planeСheck/verticalPlane"
+import leftPlane from "./winPlaneСheck/leftPlane"
+import rightPlane from "./winPlaneСheck/rightPlane"
+import horizontalPlane from "./winPlaneСheck/horizontalPlane"
+import verticalPlane from "./winPlaneСheck/verticalPlane"
 
 function winIndex(props, index) {
 
     let symbol;
     props.isFirstPlayer ? symbol = props.playerFirstSymbol : symbol = props.playerSecondSymbol
-    const arrLines = [leftPlane(props, index, symbol), rightPlane(props, index, symbol), horizontalPlane(props, index, symbol), verticalPlane(props, index, symbol)]
+    const arrLines = [
+        leftPlane(props.playingField, index, symbol, props.gameRule),
+        rightPlane(props.playingField, index, symbol, props.gameRule),
+        horizontalPlane(props.playingField, index, symbol, props.gameRule),
+        verticalPlane(props.playingField, index, symbol, props.gameRule)]
     let winIndex = [];
     arrLines.forEach(element => {
 
