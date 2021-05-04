@@ -6,7 +6,7 @@ function horizontalWeightСell(arr, currentCellObj, symbol, gameRule) {
     let opponentSymbol = null;
     symbol === symbolEnum.zero ? opponentSymbol = symbolEnum.cross :opponentSymbol = symbolEnum.zero
 
-    for (let i = 1; i < gameRule; i++) {
+    for (let i = 0; i < gameRule; i++) {
 
 
         if (currentCellObj.collIndex + i < gameRule) {
@@ -30,7 +30,7 @@ function horizontalWeightСell(arr, currentCellObj, symbol, gameRule) {
 
     }
 
-    for (let i = 1; i < gameRule; i++) {
+    for (let i = 0; i < gameRule; i++) {
 
         if (currentCellObj.collIndex - i >= 0) {
 
@@ -52,7 +52,7 @@ function horizontalWeightСell(arr, currentCellObj, symbol, gameRule) {
 
     }
 
-    return emptyСells + filledСells >= gameRule ? 100 * filledСells / (emptyСells + filledСells) : 0
+    return emptyСells + filledСells >= gameRule ?  filledСells : 0
 }
 
 export default horizontalWeightСell

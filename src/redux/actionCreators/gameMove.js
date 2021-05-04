@@ -1,7 +1,7 @@
- const gameMove = function (id) {
+ const gameMove = function (indexObj) {
     return {
         type: "GAME_MOVE",
-        payload: id
+        payload: indexObj
     }
 }
 

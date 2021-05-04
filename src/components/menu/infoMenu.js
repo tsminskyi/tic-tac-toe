@@ -7,9 +7,6 @@ function InfoMenu(props) {
     let turn;
     props.isFirstPlayer ? turn = props.playerFirstSymbol : turn = props.playerSecondSymbol
 
-    let player;
-    props.isFirstPlayer ? player = props.playerSecondSymbol : player = props.playerFirstSymbol
-
     if (props.winCell != null) {
         return (
             <div>
@@ -18,7 +15,7 @@ function InfoMenu(props) {
                     <button onClick={() => props.endGame()}>New Game</button>
                 </div>
                 <div className="resultMenu">
-                    WIN - {player}
+                    WIN - {turn}
                 </div>
             </div>
 

@@ -1,9 +1,8 @@
-import symbolEnum from "../../enum/gameSymbols" 
+
 
 function verticalPlane(arr, currentCellObj, symbol, gameRule) {
 
-    let emptyСells = 0
-    let filledСells = 0
+    const indArr = [];
 
     for (let i = 1; i < gameRule; i++) {
 
@@ -12,20 +11,9 @@ function verticalPlane(arr, currentCellObj, symbol, gameRule) {
 
             if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex] === symbol) {
 
-                filledСells++
+                indArr.push({ rowIndex: currentCellObj.rowIndex + i, collIndex: currentCellObj.collIndex })
 
-            }
-
-            if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex] === symbolEnum.emptiness) {
-
-                emptyСells++
-            }
-
-            if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex] !== symbolEnum.emptiness &&
-                arr[currentCellObj.rowIndex + i][currentCellObj.collIndex] !== symbol) {
-
-                break;
-            }
+            } else break;
 
         }
 
@@ -37,25 +25,15 @@ function verticalPlane(arr, currentCellObj, symbol, gameRule) {
 
             if (arr[currentCellObj.rowIndex - i][currentCellObj.collIndex] === symbol) {
 
-                filledСells++
+                indArr.push({ rowIndex: currentCellObj.rowIndex - i, collIndex: currentCellObj.collIndex })
 
-            }
 
-            if (arr[currentCellObj.rowIndex - i][currentCellObj.collIndex] === symbolEnum.emptiness) {
-
-                emptyСells++
-            }
-
-            if (arr[currentCellObj.rowIndex - i][currentCellObj.collIndex] !== symbolEnum.emptiness &&
-                arr[currentCellObj.rowIndex - i][currentCellObj.collIndex] !== symbol) {
-
-                break;
-            }
+            } else break;
         }
 
     }
 
-    return emptyСells + filledСells >= gameRule ? 100 * filledСells / (emptyСells + filledСells) : 0
+    return indArr
 }
 
 export default verticalPlane

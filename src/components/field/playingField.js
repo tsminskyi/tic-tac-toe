@@ -1,29 +1,33 @@
 import { connect } from 'react-redux'
 import mapStateToProps from '../../redux/mapStateToProps'
+import mapDispatchToProps from '../../redux/mapDispatchToProps'
 import FieldСell from "./fieldСell"
 import InfoMenu from "../menu/infoMenu"
-import React from "react"
+import React, { useEffect } from 'react';
 import modeEnum from "../../enum/gameMode"
-
+import AI from "../../logic/AI/AI"
 
 function PlayingField(props) {
     let widthCell = Math.fround(100 / props.playingField[0].length);
     let color = 'transparent'
 
-    // if (this.props.mode === modeEnum.eve) {
+    useEffect(() => {
 
-    //     let currentSymbol = null;
+        if (props.mode === modeEnum.eve) {
 
-    //     this.props.isFirstPlayer ? currentSymbol = this.props.playerFirstSymbol : currentSymbol = this.props.playerSecondSymbol
-    // }
-    // if (this.props.mode === modeEnum.pve) {
+            let currentSymbol = null;
 
-    //     if (!this.props.isFirstPlayer) {
+            props.isFirstPlayer ? currentSymbol = props.playerFirstSymbol : currentSymbol = props.playerSecondSymbol
+        }
+        if (props.mode === modeEnum.pve) {
 
-    //     }
+            if (!props.isFirstPlayer) {
 
-    // }
+                props.gameMove(AI(props, props.playerSecondSymbol));
+            }
 
+        }
+    }, [props]);
 
 
     return (
@@ -62,4 +66,4 @@ function PlayingField(props) {
     )
 }
 
-export default connect(mapStateToProps)(PlayingField);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayingField);

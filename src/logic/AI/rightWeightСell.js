@@ -7,7 +7,7 @@ function rightWeightСell(arr, currentCellObj, symbol, gameRule) {
     let opponentSymbol = null;
     symbol === symbolEnum.zero ? opponentSymbol = symbolEnum.cross : opponentSymbol = symbolEnum.zero
 
-    for (let i = 1; i < gameRule; i++) {
+    for (let i = 0; i < gameRule; i++) {
 
 
         if (currentCellObj.rowIndex - i >= 0
@@ -32,7 +32,7 @@ function rightWeightСell(arr, currentCellObj, symbol, gameRule) {
 
     }
 
-    for (let i = 1; i < gameRule; i++) {
+    for (let i = 0; i < gameRule; i++) {
 
         if (currentCellObj.rowIndex + i < arr.length
             && currentCellObj.collIndex - i >= 0) {
