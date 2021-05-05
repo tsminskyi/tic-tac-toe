@@ -28,7 +28,7 @@ export const reducer = function (state, action) {
             state.isFirstPlayer ? changeSymbol = state.playerFirstSymbol : changeSymbol = state.playerSecondSymbol;
             newfieldValue[action.payload.rowIndex][action.payload.collIndex] = changeSymbol;
             return {
-                ...state, playingField: newfieldValue, isFirstPlayer: !state.isFirstPlayer
+                ...state, playingField: newfieldValue
             }
         }
 

@@ -1,5 +1,3 @@
-
-
 function isEmpty(value) {
 
     switch (typeof value) {

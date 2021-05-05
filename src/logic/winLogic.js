@@ -3,10 +3,10 @@ import rightPlane from "./winPlaneСheck/rightPlane"
 import horizontalPlane from "./winPlaneСheck/horizontalPlane"
 import verticalPlane from "./winPlaneСheck/verticalPlane"
 
-function winIndex(props, index) {
+function winIndex(props, index, symbol) {
 
-    let symbol;
-    props.isFirstPlayer ? symbol = props.playerFirstSymbol : symbol = props.playerSecondSymbol
+    // let symbol;
+    // props.isFirstPlayer ? symbol = props.playerFirstSymbol : symbol = props.playerSecondSymbol
     const arrLines = [
         leftPlane(props.playingField, index, symbol, props.gameRule),
         rightPlane(props.playingField, index, symbol, props.gameRule),

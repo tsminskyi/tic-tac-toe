@@ -9,9 +9,14 @@ import winIndex from "../../logic/winLogic"
 
 
 function click(props) {
-
+    let symbol;
+    props.isFirstPlayer ? symbol = props.playerFirstSymbol : symbol = props.playerSecondSymbol
     props.gameMove(props.index)
-    props.setWinCell(winIndex(props, props.index));
+    let winCell = winIndex(props, props.index, symbol)
+    props.setWinCell(winCell);
+    if (winCell == null) {
+        props.settingTurn(!props.isFirstPlayer);
+    }
 
 }
 
@@ -20,7 +25,7 @@ function FieldСell(props) {
 
     switch (props.mode) {
         case modeEnum.pvp: {
-            
+
             if (props.value !== symbolEnum.emptiness) {
 
 

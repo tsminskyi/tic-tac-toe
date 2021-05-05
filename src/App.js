@@ -8,12 +8,12 @@ import GameSymbol from './components/menu/setSymbol'
 import PlayingField from './components/field/playingField';
 import React from 'react'
 
-function start(value) {
+function start(props) {
 
     let setTurn = Math.floor(Math.random() * 2);
-    if (value.playingField != null && value.mode != null && value.playerFirstSymbol != null) {
-        value.settingTurn(Boolean(setTurn));
-        value.startNewGame();
+    if (props.playingField != null && props.mode != null && props.playerFirstSymbol != null) {
+        props.settingTurn(Boolean(setTurn));
+        props.startNewGame();
     }
 
 }

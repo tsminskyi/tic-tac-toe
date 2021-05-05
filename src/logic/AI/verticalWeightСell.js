@@ -5,7 +5,7 @@ function verticalWeightСell(arr, currentCellObj, symbol, gameRule) {
     let filledСells = 0
     let opponentSymbol = null;
     symbol === symbolEnum.zero ? opponentSymbol = symbolEnum.cross : opponentSymbol = symbolEnum.zero
-    for (let i = 0; i < gameRule; i++) {
+    for (let i = 1; i < gameRule; i++) {
 
 
         if (currentCellObj.rowIndex + i < arr.length) {
@@ -48,7 +48,7 @@ function verticalWeightСell(arr, currentCellObj, symbol, gameRule) {
 
     }
 
-    return emptyСells + filledСells >= gameRule ? 100 * filledСells / (emptyСells + filledСells) : 0
+    return emptyСells + filledСells >= gameRule ? (100 * filledСells / (emptyСells + filledСells))+filledСells : 0
 }
 
 export default verticalWeightСell
