@@ -7,7 +7,7 @@ import newGame from "../redux/actionCreators/newGame"
 import settingPlayerSymbol from "../redux/actionCreators/settingPlayerSymbol"
 import settingTurn from "../redux/actionCreators/settingTurn"
 import endGame from "../redux/actionCreators/endGame"
-import setWinCell from "../redux/actionCreators/setWinCell"
+import setVictoryCells from "./actionCreators/setVictoryCells"
 
 const mapDispatchToProps = () => {//добавить фильтр для отображения не всех данных
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = () => {//добавить фильтр для ото�
         endGame: () => store.dispatch(endGame()),
         settingSymbol: (value) => store.dispatch(settingPlayerSymbol(value)),
         settingTurn: (value) => store.dispatch(settingTurn(value)),
-        setWinCell: (value) => store.dispatch(setWinCell(value))
+        setVictoryCells: (value) => store.dispatch(setVictoryCells(value))
     }
 
 }

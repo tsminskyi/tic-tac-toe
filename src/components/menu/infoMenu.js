@@ -5,11 +5,11 @@ import mapDispatchToProps from '../../redux/mapDispatchToProps'
 function InfoMenu(props) {
     const {
         isFirstPlayer, playerFirstSymbol, playerSecondSymbol,
-        winCell, endGame } = props;
+        victoryCells, endGame } = props;
     let turn;
     isFirstPlayer ? turn = playerFirstSymbol : turn = playerSecondSymbol
 
-    if (winCell != null) {
+    if (victoryCells != null) {
         return (
             <div>
                 <div className="info">

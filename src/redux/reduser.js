@@ -59,9 +59,9 @@ export const reducer = function (state, action) {
             }
         }
 
-        case "SETTING_WIN_CELL": {
+        case "SETTING_VICTORY_CELL": {
             return {
-                ...state, winCell: action.payload
+                ...state, victoryCells: action.payload
             }
         }
 

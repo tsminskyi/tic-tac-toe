@@ -7,9 +7,8 @@ import symbolEnum from "../../enum/gameSymbols"
 import winIndex from "../winLogic"
 import gameRules from "../../enum/gameRules"
 function AI(props, symbol) {
-    const {
-        playingField, gameRule } = props;
-
+    const gameRule = props.gameRule;
+    const playingField = props.playingField;
     let moveOptions = [];
     let moveOptionsOpponent = [];
     for (let i = 0; i < playingField.length; i++) {
@@ -21,8 +20,8 @@ function AI(props, symbol) {
                 symbol === symbolEnum.cross ? symbolOpponent = symbolEnum.zero : symbolOpponent = symbolEnum.cross
 
                 if (filledCellsNearby(currentCellObj, playingField) || gameRule === gameRules.classic) {
-                    let win = winIndex(props, currentCellObj, symbol);
-                    let winOpponent = winIndex(props, currentCellObj, symbolOpponent);
+                    let win = winIndex(playingField, currentCellObj, symbol, gameRule);
+                    let winOpponent = winIndex(playingField, currentCellObj, symbolOpponent);
                     if (win != null || winOpponent != null) {
                         return currentCellObj
                     }

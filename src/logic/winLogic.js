@@ -3,16 +3,13 @@ import rightPlane from "./winPlaneСheck/rightPlane"
 import horizontalPlane from "./winPlaneСheck/horizontalPlane"
 import verticalPlane from "./winPlaneСheck/verticalPlane"
 
-function winIndex(props, index, symbol) {
-
-    const {
-        playingField, gameRule } = props;
+function winIndex(arr, index, symbol, gameRule) {
 
     const arrLines = [
-        leftPlane(playingField, index, symbol, gameRule),
-        rightPlane(playingField, index, symbol, gameRule),
-        horizontalPlane(playingField, index, symbol, gameRule),
-        verticalPlane(playingField, index, symbol, gameRule)]
+        leftPlane(arr, index, symbol, gameRule),
+        rightPlane(arr, index, symbol, gameRule),
+        horizontalPlane(arr, index, symbol, gameRule),
+        verticalPlane(arr, index, symbol, gameRule)]
     let winIndex = [];
     arrLines.forEach(element => {
 

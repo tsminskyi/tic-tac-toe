@@ -5,23 +5,23 @@ import winIndex from "../../logic/winLogic"
 function AI_move(props) {
 
     const {
-        mode, isFirstPlayer,
+        mode, isFirstPlayer, gameRule,
         playerFirstSymbol, playerSecondSymbol,
-        winCell, gameMove, setWinCell, settingTurn } = props;
-        
+        victoryCells, gameMove, setVictoryCells, settingTurn } = props;
+    const playingField = props.playingField;
+
     if (mode === modeEnum.eve) {
 
         let currentSymbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol
 
 
         let move = AI(props, currentSymbol);
-
-        if (move != null && winCell == null) {
+        if (move != null && victoryCells == null) {
 
             gameMove(move);
-            let winCell = winIndex(props, move, currentSymbol)
-            setWinCell(winCell);
-            if (winCell == null) {
+            let winCell = winIndex(playingField, move, currentSymbol, gameRule)
+            setVictoryCells(winCell);
+            if (victoryCells == null) {
                 settingTurn(!isFirstPlayer);
             }
 
@@ -33,15 +33,14 @@ function AI_move(props) {
         if (!isFirstPlayer) {
 
             let move = AI(props, playerSecondSymbol);
-
-            if (move != null && winCell == null) {
+            if (move != null && victoryCells == null) {
 
 
                 let symbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol
                 gameMove(move);
-                let winCell = winIndex(props, move, symbol)
-                setWinCell(winCell);
-                if (winCell == null) {
+                let winCell = winIndex(playingField, move, symbol, gameRule)
+                setVictoryCells(winCell);
+                if (victoryCells == null) {
                     settingTurn(!isFirstPlayer);
                 }
             }
