@@ -5,23 +5,24 @@ import verticalPlane from "./winPlaneСheck/verticalPlane"
 
 function winIndex(props, index, symbol) {
 
-    // let symbol;
-    // props.isFirstPlayer ? symbol = props.playerFirstSymbol : symbol = props.playerSecondSymbol
+    const {
+        playingField, gameRule } = props;
+
     const arrLines = [
-        leftPlane(props.playingField, index, symbol, props.gameRule),
-        rightPlane(props.playingField, index, symbol, props.gameRule),
-        horizontalPlane(props.playingField, index, symbol, props.gameRule),
-        verticalPlane(props.playingField, index, symbol, props.gameRule)]
+        leftPlane(playingField, index, symbol, gameRule),
+        rightPlane(playingField, index, symbol, gameRule),
+        horizontalPlane(playingField, index, symbol, gameRule),
+        verticalPlane(playingField, index, symbol, gameRule)]
     let winIndex = [];
     arrLines.forEach(element => {
 
-        if (element.length >= props.gameRule - 1) {
+        if (element.length >= gameRule - 1) {
             winIndex = winIndex.concat(element)
         }
 
     });
     winIndex = winIndex.concat(index)
-    // var unionIndex = Array.from(new Set(winIndex.map(JSON.stringify))).map(JSON.parse);
-    return winIndex.length >= props.gameRule - 1 ? winIndex : null
+
+    return winIndex.length >= gameRule - 1 ? winIndex : null
 }
 export default winIndex;

@@ -9,84 +9,88 @@ import winIndex from "../../logic/winLogic"
 
 
 function click(props) {
+    const { isFirstPlayer, playerFirstSymbol, playerSecondSymbol,
+        gameMove, setWinCell, settingTurn, index } = props;
+
     let symbol;
-    props.isFirstPlayer ? symbol = props.playerFirstSymbol : symbol = props.playerSecondSymbol
-    props.gameMove(props.index)
-    let winCell = winIndex(props, props.index, symbol)
-    props.setWinCell(winCell);
+    isFirstPlayer ? symbol = playerFirstSymbol : symbol = playerSecondSymbol
+    gameMove(index)
+    let winCell = winIndex(props, index, symbol)
+    setWinCell(winCell);
     if (winCell == null) {
-        props.settingTurn(!props.isFirstPlayer);
+        settingTurn(!isFirstPlayer);
     }
 
 }
 
 
 function FieldСell(props) {
-
-    switch (props.mode) {
+    const { mode, style, winCell, playingField, index } = props;
+    const value = playingField[index.rowIndex][index.collIndex];
+    switch (mode) {
         case modeEnum.pvp: {
 
-            if (props.value !== symbolEnum.emptiness) {
+            if (value !== symbolEnum.emptiness) {
 
 
                 return (
-                    <div style={{ width: props.style.size, height: props.style.size, backgroundColor: props.style.backgroundColor }}>
-                        <img src={props.value === symbolEnum.zero ? circle : times} alt="" />
+                    <div style={{ width: style.size, height: style.size, backgroundColor: style.backgroundColor }}>
+                        <img src={value === symbolEnum.zero ? circle : times} alt="" />
                     </div>)
             }
 
-            if (props.winCell != null) {
+            if (winCell != null) {
                 return (
-                    <div style={{ width: props.style.size, height: props.style.size }}>
+                    <div style={{ width: style.size, height: style.size }}>
 
                     </div>
                 )
             }
 
             return (
-                <div onClick={() => click(props)} style={{ width: props.style.size, height: props.style.size }}>
+                <div onClick={() => click(props)} style={{ width: style.size, height: style.size }}>
 
                 </div>
             )
         }
 
         case modeEnum.pve: {
-            if (props.value !== symbolEnum.emptiness) {
+            if (value !== symbolEnum.emptiness) {
 
 
                 return (
-                    <div style={{ width: props.style.size, height: props.style.size, backgroundColor: props.style.backgroundColor }}>
-                        <img src={props.value === symbolEnum.zero ? circle : times} alt="" />
+                    <div style={{ width: style.size, height: style.size, backgroundColor: style.backgroundColor }}>
+                        <img src={value === symbolEnum.zero ? circle : times} alt="" />
                     </div>)
             }
 
-            if (props.winCell != null || !props.isFirstPlayer) {
+            if (winCell != null || !props.isFirstPlayer) {
                 return (
-                    <div style={{ width: props.style.size, height: props.style.size }}>
+                    <div style={{ width: style.size, height: style.size }}>
 
                     </div>
                 )
             }
 
             return (
-                <div onClick={() => click(props)} style={{ width: props.style.size, height: props.style.size }}>
+                <div onClick={() => click(props)} style={{ width: style.size, height: style.size }}>
 
                 </div>
             )
         }
 
         default: {
-            if (props.value !== symbolEnum.emptiness) {
+            if (value !== symbolEnum.emptiness) {
 
 
                 return (
-                    <div style={{ width: props.style.size, height: props.style.size, backgroundColor: props.style.backgroundColor }}>
-                        <img src={props.value === symbolEnum.zero ? circle : times} alt="" />
+                    <div style={{ width: style.size, height: style.size, backgroundColor: style.backgroundColor }}>
+                        <img src={value === symbolEnum.zero ? circle : times} alt="" />
                     </div>)
             }
 
             return (
-                <div style={{ width: props.style.size, height: props.style.size }}>
+                <div style={{ width: style.size, height: style.size }}>
 
                 </div>
             )

@@ -5,39 +5,42 @@ import rightWeightСell from "./rightWeightСell";
 import filledCellsNearby from "../../service/filledCellsNearby"
 import symbolEnum from "../../enum/gameSymbols"
 import winIndex from "../winLogic"
+import gameRules from "../../enum/gameRules"
 function AI(props, symbol) {
+    const {
+        playingField, gameRule } = props;
 
     let moveOptions = [];
     let moveOptionsOpponent = [];
-    for (let i = 0; i < props.playingField.length; i++) {
+    for (let i = 0; i < playingField.length; i++) {
 
-        for (let x = 0; x < props.playingField.length; x++) {
-            if (props.playingField[i][x] === symbolEnum.emptiness) {
+        for (let x = 0; x < playingField.length; x++) {
+            if (playingField[i][x] === symbolEnum.emptiness) {
                 let currentCellObj = { rowIndex: i, collIndex: x }
                 let symbolOpponent = null;
                 symbol === symbolEnum.cross ? symbolOpponent = symbolEnum.zero : symbolOpponent = symbolEnum.cross
 
-                if (filledCellsNearby(currentCellObj, props.playingField)) {
+                if (filledCellsNearby(currentCellObj, playingField) || gameRule === gameRules.classic) {
                     let win = winIndex(props, currentCellObj, symbol);
                     let winOpponent = winIndex(props, currentCellObj, symbolOpponent);
                     if (win != null || winOpponent != null) {
                         return currentCellObj
                     }
 
-                    let weightСell = [horizontalWeightСell(props.playingField, currentCellObj, symbol, props.gameRule),
-                    verticalWeightСell(props.playingField, currentCellObj, symbol, props.gameRule),
-                    leftWeightСell(props.playingField, currentCellObj, symbol, props.gameRule),
-                    rightWeightСell(props.playingField, currentCellObj, symbol, props.gameRule)];
+                    let weightСell = [horizontalWeightСell(playingField, currentCellObj, symbol, gameRule),
+                    verticalWeightСell(playingField, currentCellObj, symbol, gameRule),
+                    leftWeightСell(playingField, currentCellObj, symbol, gameRule),
+                    rightWeightСell(playingField, currentCellObj, symbol, gameRule)];
 
                     weightСell.sort((a, b) => { return b - a })
                     moveOptions.push({ rowIndex: i, collIndex: x, weigh: weightСell[0] })
 
 
 
-                    let weightСellOpponent = [horizontalWeightСell(props.playingField, currentCellObj, symbolOpponent, props.gameRule),
-                    verticalWeightСell(props.playingField, currentCellObj, symbolOpponent, props.gameRule),
-                    leftWeightСell(props.playingField, currentCellObj, symbolOpponent, props.gameRule),
-                    rightWeightСell(props.playingField, currentCellObj, symbolOpponent, props.gameRule)];
+                    let weightСellOpponent = [horizontalWeightСell(playingField, currentCellObj, symbolOpponent, gameRule),
+                    verticalWeightСell(playingField, currentCellObj, symbolOpponent, gameRule),
+                    leftWeightСell(playingField, currentCellObj, symbolOpponent, gameRule),
+                    rightWeightСell(playingField, currentCellObj, symbolOpponent, gameRule)];
 
                     weightСellOpponent.sort((a, b) => { return b - a })
                     moveOptionsOpponent.push({ rowIndex: i, collIndex: x, weigh: weightСellOpponent[0] })
@@ -49,7 +52,7 @@ function AI(props, symbol) {
     }
     if (moveOptions.length < 1) {
 
-        return { rowIndex: Math.floor(Math.random() * props.playingField.length), collIndex: Math.floor(Math.random() * props.playingField.length) };
+        return { rowIndex: Math.floor(Math.random() * playingField.length), collIndex: Math.floor(Math.random() * playingField.length) };
 
     }
     moveOptions.sort((a, b) => { return b.weigh - a.weigh });

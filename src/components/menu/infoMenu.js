@@ -3,16 +3,18 @@ import mapStateToProps from '../../redux/mapStateToProps'
 import mapDispatchToProps from '../../redux/mapDispatchToProps'
 
 function InfoMenu(props) {
-
+    const {
+        isFirstPlayer, playerFirstSymbol, playerSecondSymbol,
+        winCell, endGame } = props;
     let turn;
-    props.isFirstPlayer ? turn = props.playerFirstSymbol : turn = props.playerSecondSymbol
+    isFirstPlayer ? turn = playerFirstSymbol : turn = playerSecondSymbol
 
-    if (props.winCell != null) {
+    if (winCell != null) {
         return (
             <div>
                 <div className="info">
                     <p>TURN: {turn}</p>
-                    <button onClick={() => props.endGame()}>New Game</button>
+                    <button onClick={() => endGame()}>New Game</button>
                 </div>
                 <div className="resultMenu">
                     WIN - {turn}
@@ -26,7 +28,7 @@ function InfoMenu(props) {
 
         <div className="info">
             <p>TURN: {turn}</p>
-            <button onClick={() => props.endGame()}>New Game</button>
+            <button onClick={() => endGame()}>New Game</button>
         </div>
 
     )

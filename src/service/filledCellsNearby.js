@@ -1,8 +1,6 @@
 import symbolEnum from "../enum/gameSymbols"
 function filledCellsNearby(indexObj, arr) {
 
-    let flag = false;
-
     const rules = [
         { row: indexObj.rowIndex - 1, coll: indexObj.collIndex - 1 },
         { row: indexObj.rowIndex - 1, coll: indexObj.collIndex },
@@ -25,7 +23,6 @@ function filledCellsNearby(indexObj, arr) {
 
             if (arr[rules[i].row][rules[i].coll] !== symbolEnum.emptiness) {
 
-                flag = true;
                 return true
             }
         }

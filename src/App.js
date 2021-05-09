@@ -23,7 +23,7 @@ function App(props) {
     if (props.stateGame) {
         return (
             <div className="conteiner">
-                < PlayingField />
+                < PlayingField onClick={()=>console.log("11111")}/>
             </div>
         )
 
