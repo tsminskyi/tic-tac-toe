@@ -4,7 +4,7 @@ import leftWeightСell from "./leftWeightСell";
 import rightWeightСell from "./rightWeightСell";
 import filledCellsNearby from "../../service/filledCellsNearby"
 import symbolEnum from "../../enum/gameSymbols"
-import winIndex from "../winLogic"
+import winIndex from "../winningLine"
 import gameRules from "../../enum/gameRules"
 function AI(props, symbol) {
     const gameRule = props.gameRule;

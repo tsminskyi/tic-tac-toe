@@ -5,7 +5,10 @@ import FieldСell from "./fieldСell"
 import InfoMenu from "../menu/infoMenu"
 import React, { useEffect } from 'react';
 import AI_move from "../../logic/AI/AI_move"
-import winIndex from "../../logic/winLogic"
+import clickWithRules from "../../event/clickWithRules"
+const w = window.innerWidth;
+const h = window.innerHeight;
+const size = w > h ? h * 0.9 : w * 0.9
 
 function PlayingField(props) {
     const { playingField, victoryCells } = props;
@@ -15,30 +18,12 @@ function PlayingField(props) {
 
     useEffect(() => AI_move(props), [props]);
 
-    function click(event, props) {
 
-        const { isFirstPlayer, playerFirstSymbol, playerSecondSymbol,
-            gameMove, setVictoryCells, settingTurn, gameRule, victoryCells } = props;
-        const playingField = props.playingField;
-        if (victoryCells == null) {
-            const [row, coll] = event.target.id.split('.');
-            const indexObj = { rowIndex: Number(row), collIndex: Number(coll) };
-            const symbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol;
-
-            gameMove(indexObj);
-            const winCells = winIndex(playingField, indexObj, symbol, gameRule);
-            setVictoryCells(winCells);
-            if (victoryCells == null) {
-                settingTurn(!isFirstPlayer);
-            }
-        }
-
-    }
 
     return (
-        <div className="conteiner" >
+        <div className="conteiner" style={{ width: size + "px", height: size + "px" }}>
             <InfoMenu />
-            <div className="conteiner__playing-field" onClick={(event) => click(event, props)}>
+            <div className="conteiner__playing-field" onClick={(event) => clickWithRules(event, props)}>
 
                 {playingField.map((elem, row) => {
                     return (

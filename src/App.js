@@ -8,6 +8,9 @@ import GameSymbol from './components/menu/setSymbol'
 import PlayingField from './components/field/playingField';
 import React from 'react'
 
+const w = window.innerWidth;
+const h = window.innerHeight;
+const size = w > h ? h * 0.9 : w * 0.9
 function start(props) {
 
     let setTurn = Math.floor(Math.random() * 2);
@@ -22,15 +25,15 @@ function App(props) {
 
     if (props.stateGame) {
         return (
-            <div className="conteiner">
-                < PlayingField />
+            <div className="conteiner" style={{ width: size + "px", height: size + "px" }}>
+                < PlayingField style={size}/>
             </div>
         )
 
     }
     else {
         return (
-            <div className="conteiner">
+            <div className="conteiner" style={{ width: size + "px", height: size + "px" }}>
                 <GameBoard />
                 <GameModes />
                 <GameSymbol />

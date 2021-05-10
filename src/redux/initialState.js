@@ -7,7 +7,8 @@ const initialSate = {
     playerFirstSymbol: null,
     playerSecondSymbol: null,
     gameRule: null,
-    victoryCells: null
+    victoryCells: null,
+    isFirstClick: true
 
 }
 export default initialSate;

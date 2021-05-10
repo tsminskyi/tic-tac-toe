@@ -1,6 +1,6 @@
 import modeEnum from "../../enum/gameMode"
 import AI from "../../logic/AI/AI"
-import winIndex from "../../logic/winLogic"
+import winningLine from "../winningLine"
 
 function AI_move(props) {
 
@@ -19,9 +19,9 @@ function AI_move(props) {
         if (move != null && victoryCells == null) {
 
             gameMove(move);
-            let winCell = winIndex(playingField, move, currentSymbol, gameRule)
+            let winCell = winningLine(playingField, move, currentSymbol, gameRule)
             setVictoryCells(winCell);
-            if (victoryCells == null) {
+            if (winCell == null) {
                 settingTurn(!isFirstPlayer);
             }
 
@@ -38,9 +38,9 @@ function AI_move(props) {
 
                 let symbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol
                 gameMove(move);
-                let winCell = winIndex(playingField, move, symbol, gameRule)
+                let winCell = winningLine(playingField, move, symbol, gameRule)
                 setVictoryCells(winCell);
-                if (victoryCells == null) {
+                if (winCell == null) {
                     settingTurn(!isFirstPlayer);
                 }
             }

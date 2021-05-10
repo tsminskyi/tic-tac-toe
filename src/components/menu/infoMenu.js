@@ -6,8 +6,7 @@ function InfoMenu(props) {
     const {
         isFirstPlayer, playerFirstSymbol, playerSecondSymbol,
         victoryCells, endGame } = props;
-    let turn;
-    isFirstPlayer ? turn = playerFirstSymbol : turn = playerSecondSymbol
+    let turn = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol
 
     if (victoryCells != null) {
         return (

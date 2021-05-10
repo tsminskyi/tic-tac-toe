@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {//добавить фильтр для от�
         playerFirstSymbol: state.playerFirstSymbol,
         playerSecondSymbol: state.playerSecondSymbol,
         victoryCells: state.victoryCells,
-        gameRule: state.gameRule
+        gameRule: state.gameRule,
+        isFirstClick: state.isFirstClick
     }
 }
 export default mapStateToProps;

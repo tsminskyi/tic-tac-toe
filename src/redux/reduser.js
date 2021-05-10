@@ -28,7 +28,7 @@ export const reducer = function (state, action) {
             state.isFirstPlayer ? changeSymbol = state.playerFirstSymbol : changeSymbol = state.playerSecondSymbol;
             newfieldValue[action.payload.rowIndex][action.payload.collIndex] = changeSymbol;
             return {
-                ...state, playingField: newfieldValue
+                ...state, playingField: newfieldValue, isFirstClick: false
             }
         }
 
@@ -67,7 +67,7 @@ export const reducer = function (state, action) {
 
         case "END_GAME": {
             return {
-                 stateGame: action.payload
+                stateGame: action.payload
             }
         }
 

@@ -3,7 +3,7 @@ import rightPlane from "./winPlaneСheck/rightPlane"
 import horizontalPlane from "./winPlaneСheck/horizontalPlane"
 import verticalPlane from "./winPlaneСheck/verticalPlane"
 
-function winIndex(arr, index, symbol, gameRule) {
+function winningLine(arr, index, symbol, gameRule) {
 
     const arrLines = [
         leftPlane(arr, index, symbol, gameRule),
@@ -22,4 +22,4 @@ function winIndex(arr, index, symbol, gameRule) {
 
     return winIndex.length >= gameRule - 1 ? winIndex : null
 }
-export default winIndex;
+export default winningLine;
