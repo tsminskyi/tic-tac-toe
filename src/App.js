@@ -17,6 +17,7 @@ function start(props) {
     if (props.playingField != null && props.mode != null && props.playerFirstSymbol != null) {
         props.settingTurn(Boolean(setTurn));
         props.startNewGame();
+
     }
 
 }
@@ -26,7 +27,7 @@ function App(props) {
     if (props.stateGame) {
         return (
             <div className="conteiner" style={{ width: size + "px", height: size + "px" }}>
-                < PlayingField style={size}/>
+                < PlayingField style={size} />
             </div>
         )
 

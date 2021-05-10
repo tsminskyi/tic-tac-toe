@@ -1,14 +1,13 @@
 import modeEnum from "../../enum/gameMode"
 import AI from "../../logic/AI/AI"
-import winningLine from "../winningLine"
-
+import registrationMove from "../../event/registrationMove"
 function AI_move(props) {
 
     const {
-        mode, isFirstPlayer, gameRule,
+        mode, isFirstPlayer,
         playerFirstSymbol, playerSecondSymbol,
-        victoryCells, gameMove, setVictoryCells, settingTurn } = props;
-    const playingField = props.playingField;
+        victoryCells } = props;
+    
 
     if (mode === modeEnum.eve) {
 
@@ -18,13 +17,7 @@ function AI_move(props) {
         let move = AI(props, currentSymbol);
         if (move != null && victoryCells == null) {
 
-            gameMove(move);
-            let winCell = winningLine(playingField, move, currentSymbol, gameRule)
-            setVictoryCells(winCell);
-            if (winCell == null) {
-                settingTurn(!isFirstPlayer);
-            }
-
+            registrationMove(props, move)
         }
 
     }
@@ -35,14 +28,7 @@ function AI_move(props) {
             let move = AI(props, playerSecondSymbol);
             if (move != null && victoryCells == null) {
 
-
-                let symbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol
-                gameMove(move);
-                let winCell = winningLine(playingField, move, symbol, gameRule)
-                setVictoryCells(winCell);
-                if (winCell == null) {
-                    settingTurn(!isFirstPlayer);
-                }
+                registrationMove(props, move)
             }
 
         }

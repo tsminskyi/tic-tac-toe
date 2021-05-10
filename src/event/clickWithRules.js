@@ -11,6 +11,7 @@ function clickWithRules(event, props) {
     if (victoryCells == null) {
         const [row, coll] = event.target.id.split('.');
         const indexObj = { rowIndex: Number(row), collIndex: Number(coll) };
+        
         if (mode === gameMode.pvp) {
             if (filledCellsNearby(indexObj, playingField) || gameRule === gameRules.classic || isFirstClick) {
                 registrationMove(props, indexObj);
