@@ -21,7 +21,7 @@ function PlayingField(props) {
 
 
     return (
-        <div className="conteiner" style={{ width: size + "px", height: size + "px" }}>
+        <div className="conteiner__game" style={{ width: size + "px", height: size + "px" }}>
             <InfoMenu />
             <div className="conteiner__playing-field" onClick={(event) => clickWithRules(event, props)}>
 
@@ -30,21 +30,20 @@ function PlayingField(props) {
 
                         elem.map((value, coll) => {
 
+                            let currentIndexObj = { rowIndex: row, collIndex: coll };
                             if (victoryCells != null) {
 
                                 color = 'transparent'
-                                for (let i = 0; i < victoryCells.length; i++) {
 
-                                    if (victoryCells[i].rowIndex === row && victoryCells[i].collIndex === coll) {
-                                        color = 'red';
-                                        break;
-                                    }
+                                const findCell = victoryCells
+                                    .map((elem) => elem.rowIndex + " " + elem.collIndex)
+                                    .indexOf(currentIndexObj.rowIndex + " " + currentIndexObj.collIndex)
+                                if (findCell >= 0) color = 'red';
 
-                                }
                             }
                             return (
 
-                                < FieldСell value={value} index={{ rowIndex: row, collIndex: coll }} key={coll + row} style={{ size: widthCell + '%', backgroundColor: color }} />
+                                < FieldСell value={value} index={currentIndexObj} key={coll + row} style={{ size: widthCell + '%', backgroundColor: color }} />
 
                             )
                         })

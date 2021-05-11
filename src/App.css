@@ -9,6 +9,25 @@
   flex-direction: column;
   margin: auto;
   position: relative;
+  justify-content: center;
+}
+
+.conteiner div {
+  width: 100%;
+}
+
+.conteiner div p {
+  font-weight: 500;
+  margin: 0;
+}
+
+.conteiner div button {
+  margin: 2px;
+}
+
+.conteiner .btn:focus,
+.conteiner .btn:active {
+  box-shadow: none !important;
 }
 
 .conteiner .conteiner__playing-field {
@@ -32,7 +51,7 @@
   background-color: rgba(0, 128, 0, 0.562);
 }
 
-.conteiner .resultMenu {
+.conteiner .conteiner__resultMenu {
   position: absolute;
   display: flex;
   align-items: center;
@@ -43,4 +62,9 @@
   padding: 50px;
   background-color: rgba(0, 0, 255, 0.863);
   font-weight: bold;
+  width: auto;
+}
+
+.conteiner .conteiner__menu {
+  display: flex;
 }

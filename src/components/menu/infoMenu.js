@@ -11,11 +11,11 @@ function InfoMenu(props) {
     if (victoryCells != null) {
         return (
             <div>
-                <div className="info">
-                    <p>TURN: {turn}</p>
-                    <button onClick={() => endGame()}>New Game</button>
+                <div className="conteiner__menu">
+                    <button id="back" type="button" className="btn btn-secondary" onClick={() => endGame()}>Back</button>
+                    <p className="text-uppercase">turn: {turn}</p>
                 </div>
-                <div className="resultMenu">
+                <div className="conteiner__resultMenu">
                     WIN - {turn}
                 </div>
             </div>
@@ -25,9 +25,11 @@ function InfoMenu(props) {
 
     return (
 
-        <div className="info">
-            <p>TURN: {turn}</p>
-            <button onClick={() => endGame()}>New Game</button>
+        <div>
+            <div className="conteiner__menu">
+                <button id="back" type="button" className="btn btn-secondary" onClick={() => endGame()}>Back</button>
+                <p className="text-uppercase">turn: {turn}</p>
+            </div>
         </div>
 
     )

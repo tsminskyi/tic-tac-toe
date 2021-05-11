@@ -45,9 +45,12 @@ export const reducer = function (state, action) {
         }
 
         case "SETTING_PLAYER_SYMBOL": {
-
-            let second;
-            action.payload === symbolEnum.cross ? second = symbolEnum.zero : second = symbolEnum.cross
+            if (action.payload == null) {
+                return {
+                    ...state, playerFirstSymbol: symbolEnum.cross, playerSecondSymbol: symbolEnum.zero
+                }
+            }
+            let second = action.payload === symbolEnum.cross ? symbolEnum.zero : symbolEnum.cross
             return {
                 ...state, playerFirstSymbol: action.payload, playerSecondSymbol: second
             }
@@ -67,7 +70,7 @@ export const reducer = function (state, action) {
 
         case "END_GAME": {
             return {
-                stateGame: action.payload
+                stateGame: action.payload, isFirstClick: true
             }
         }
 

@@ -29,8 +29,8 @@ function App(props) {
             <div className="conteiner" style={{ width: size + "px", height: size + "px" }} onClick={(event)=>clickMenu(event,props)}>
                 <GameBoard />
                 <GameModes />
-                <GameSymbol />
-                <button id="new_game">New Game</button>
+                <GameSymbol mode={props.mode}/>
+                <button id="new_game" type="button" className="btn btn-danger">New Game</button>
             </div>
         )
 
