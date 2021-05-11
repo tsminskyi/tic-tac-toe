@@ -1,2 +1,2 @@
-const modeEnum = Object.freeze({ pvp: "1", pve: "2", eve: "3" });
+const modeEnum = Object.freeze({ pvp: "pvp", pve: "pve", eve: "eve" });
 export default modeEnum

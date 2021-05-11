@@ -48,7 +48,7 @@ function rightWeightСell(arr, currentCellObj, symbol, gameRule) {
             }
 
             if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex - i] === opponentSymbol) {
-                
+
                 break;
             }
 
@@ -56,7 +56,7 @@ function rightWeightСell(arr, currentCellObj, symbol, gameRule) {
 
     }
 
-    return emptyСells + filledСells >= gameRule ? (100 * filledСells / (emptyСells + filledСells))+filledСells : 0
+    return emptyСells + filledСells >= gameRule ? (100 * filledСells / (emptyСells + filledСells)) + filledСells : 0
 }
 
 export default rightWeightСell

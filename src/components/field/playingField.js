@@ -11,12 +11,12 @@ const h = window.innerHeight;
 const size = w > h ? h * 0.9 : w * 0.9
 
 function PlayingField(props) {
-    const { playingField, victoryCells } = props;
+    const { playingField, victoryCells, isFirstPlayer } = props;
 
     let widthCell = Math.fround(100 / playingField[0].length);
     let color = 'transparent'
 
-    useEffect(() => AI_move(props), [props]);
+    useEffect(() => setTimeout(() => AI_move(props), 500), [isFirstPlayer]);
 
 
 
@@ -30,8 +30,6 @@ function PlayingField(props) {
 
                         elem.map((value, coll) => {
 
-
-                            // filledCellsNearby(playingField)
                             if (victoryCells != null) {
 
                                 color = 'transparent'

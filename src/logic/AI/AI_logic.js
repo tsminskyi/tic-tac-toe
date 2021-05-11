@@ -4,7 +4,7 @@ import leftWeightСell from "./leftWeightСell";
 import rightWeightСell from "./rightWeightСell";
 import filledCellsNearby from "../../service/filledCellsNearby"
 import symbolEnum from "../../enum/gameSymbols"
-import winIndex from "../winningLine"
+import winningLine from "../winningLine"
 import gameRules from "../../enum/gameRules"
 function AI(props, symbol) {
     const gameRule = props.gameRule;
@@ -20,8 +20,8 @@ function AI(props, symbol) {
                 symbol === symbolEnum.cross ? symbolOpponent = symbolEnum.zero : symbolOpponent = symbolEnum.cross
 
                 if (filledCellsNearby(currentCellObj, playingField) || gameRule === gameRules.classic) {
-                    let win = winIndex(playingField, currentCellObj, symbol, gameRule);
-                    let winOpponent = winIndex(playingField, currentCellObj, symbolOpponent);
+                    let win = winningLine(playingField, currentCellObj, symbol, gameRule);
+                    let winOpponent = winningLine(playingField, currentCellObj, symbolOpponent);
                     if (win != null || winOpponent != null) {
                         return currentCellObj
                     }

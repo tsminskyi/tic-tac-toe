@@ -1,5 +1,5 @@
 import modeEnum from "../../enum/gameMode"
-import AI from "../../logic/AI/AI"
+import AI_logic from "./AI_logic"
 import registrationMove from "../../event/registrationMove"
 function AI_move(props) {
 
@@ -14,7 +14,7 @@ function AI_move(props) {
         let currentSymbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol
 
 
-        let move = AI(props, currentSymbol);
+        let move = AI_logic(props, currentSymbol);
         if (move != null && victoryCells == null) {
 
             registrationMove(props, move)
@@ -25,7 +25,7 @@ function AI_move(props) {
 
         if (!isFirstPlayer) {
 
-            let move = AI(props, playerSecondSymbol);
+            let move = AI_logic(props, playerSecondSymbol);
             if (move != null && victoryCells == null) {
 
                 registrationMove(props, move)
