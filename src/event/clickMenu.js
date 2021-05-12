@@ -14,9 +14,8 @@ function highlight(elem) {
 }
 
 function clickMenu(event, props) {
-
     const { settingSizeField, settingMode, settingSymbol, playingField,
-        mode, playerFirstSymbol, settingTurn, startNewGame } = props;
+        mode, playerFirstSymbol, settingTurn, startNewGame, endGame } = props;
 
     highlight(event.target)
 
@@ -46,6 +45,11 @@ function clickMenu(event, props) {
                 settingTurn(Boolean(setTurn));
                 startNewGame();
             }
+            break;
+        }
+        case "back":
+        case "back_from_result": {
+            endGame();
             break;
         }
 

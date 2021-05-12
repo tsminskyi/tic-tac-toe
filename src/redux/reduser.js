@@ -70,7 +70,7 @@ export const reducer = function (state, action) {
 
         case "END_GAME": {
             return {
-                stateGame: action.payload, isFirstClick: true
+                stateGame: action.payload, isFirstClick: true, victoryCells: null
             }
         }
 
