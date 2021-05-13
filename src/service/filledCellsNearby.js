@@ -1,5 +1,5 @@
 import symbolEnum from "../enum/gameSymbols"
-function filledCellsNearby(indexObj, arr) {
+const filledCellsNearby = (indexObj, arr) => {
 
     const rules = [
         { row: indexObj.rowIndex - 1, coll: indexObj.collIndex - 1 },

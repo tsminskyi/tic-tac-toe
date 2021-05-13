@@ -1,7 +1,5 @@
-function leftPlane(arr, currentCellObj, symbol, size) {
+const leftPlane = (arr, currentCellObj, symbol, size) => {
 
-
-   
     const indArr = [];
 
     for (let i = 1; i < size; i++) {
@@ -10,7 +8,7 @@ function leftPlane(arr, currentCellObj, symbol, size) {
         if (currentCellObj.rowIndex - i >= 0 && currentCellObj.collIndex - i >= 0) {
 
             if (arr[currentCellObj.rowIndex - i][currentCellObj.collIndex - i] === symbol) {
-                
+
                 indArr.push({ rowIndex: currentCellObj.rowIndex - i, collIndex: currentCellObj.collIndex - i })
             } else break;
         }
@@ -25,7 +23,7 @@ function leftPlane(arr, currentCellObj, symbol, size) {
             if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex + i] === symbol) {
 
                 indArr.push({ rowIndex: currentCellObj.rowIndex + i, collIndex: currentCellObj.collIndex + i })
-                
+
             } else break;
 
         }

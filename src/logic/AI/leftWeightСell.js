@@ -1,6 +1,6 @@
 import symbolEnum from "../../enum/gameSymbols"
 
-function leftWeightСell(arr, currentCellObj, symbol, gameRule) {
+const leftWeightСell=(arr, currentCellObj, symbol, gameRule)=> {
 
     let emptyСells = 0
     let filledСells = 0

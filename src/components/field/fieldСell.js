@@ -2,7 +2,7 @@ import circle from "../../img/circle-regular.svg"
 import times from "../../img/times-solid.svg"
 import symbolEnum from "../../enum/gameSymbols"
 
-function FieldСell(props) {
+const FieldСell = (props) => {
     const { style, value, index } = props;
     const img = value === symbolEnum.zero ? circle : times;
     const id = `${index.rowIndex}.${index.collIndex}`;

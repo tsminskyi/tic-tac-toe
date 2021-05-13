@@ -1,20 +1,23 @@
 
-function ResultMenu(props) {
+const ResultMenu = (props) => {
     const { victory, emptyСells, turn } = props
     let result = "";
-    let visible = 'none';
     if (victory) {
-        visible = 'block'
         result = "WIN " + turn;
     }
     if (!emptyСells) {
-        visible = 'block'
         result = "nobody won"
     }
+    const getClassName = () => {
+        const baseClass = 'conteiner__resultMenu'
+        if (victory || !emptyСells)
+          return baseClass
+        return baseClass + ' hidden'
+      }
 
 
     return (
-        <div className="conteiner__resultMenu" style={{ display: visible }}>
+        <div className={getClassName()}>
             <p className="text-uppercase">{result}</p>
             <button id="back_from_result" type="button" className="btn btn-secondary">Menu</button>
         </div >

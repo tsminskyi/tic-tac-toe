@@ -1,7 +1,7 @@
 import symbolEnum from "../enum/gameSymbols"
 import ruleEnum from "../enum/gameRules"
 import boardSizeEnum from "../enum/gameBoardSize"
-export const reducer = function (state, action) {
+const reducer = function (state, action) {
 
     switch (action.type) {
 
@@ -74,6 +74,8 @@ export const reducer = function (state, action) {
             }
         }
 
+
         default: return state;
     }
 }
+export default reducer

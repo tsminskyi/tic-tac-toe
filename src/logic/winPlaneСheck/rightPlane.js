@@ -1,4 +1,4 @@
-function rightPlane(arr, currentCellObj, symbol, size) {
+const rightPlane = (arr, currentCellObj, symbol, size) => {
 
     const indArr = [];
 

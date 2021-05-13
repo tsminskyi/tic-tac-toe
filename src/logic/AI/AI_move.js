@@ -1,13 +1,13 @@
 import modeEnum from "../../enum/gameMode"
 import AI_logic from "./AI_logic"
 import registrationMove from "../../event/registrationMove"
-function AI_move(props) {
+const AI_move = (props) => {
 
     const {
         mode, isFirstPlayer,
         playerFirstSymbol, playerSecondSymbol,
         victoryCells } = props;
-    
+
 
     if (mode === modeEnum.eve) {
 

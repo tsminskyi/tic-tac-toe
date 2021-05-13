@@ -1,6 +1,6 @@
 
 
-function horizontalPlane(arr, currentCellObj, symbol, size) {
+const horizontalPlane = (arr, currentCellObj, symbol, size) => {
     const indArr = [];
 
     for (let i = 1; i < size; i++) {

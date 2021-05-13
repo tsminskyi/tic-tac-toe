@@ -1,5 +1,5 @@
 import gameMode from "../../enum/gameMode"
-function GameModes() {
+const GameModes = () => {
     return (
         <div>
             <p className="text-uppercase">Select the game mode</p>

@@ -1,6 +1,6 @@
 
 
-function verticalPlane(arr, currentCellObj, symbol, gameRule) {
+const verticalPlane = (arr, currentCellObj, symbol, gameRule) => {
 
     const indArr = [];
 

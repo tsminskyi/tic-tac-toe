@@ -1,5 +1,5 @@
 import gameSymbols from "../enum/gameSymbols"
-function isMove(arr) {
+const isMove = (arr) => {
 
     let newArr = []
     arr.forEach(element => {

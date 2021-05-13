@@ -2,7 +2,7 @@ import gameBoardSize from "../enum/gameBoardSize"
 import gameMode from "../enum/gameMode"
 import gameSymbols from "../enum/gameSymbols"
 
-function highlight(elem) {
+const highlight = (elem) => {
 
     if (elem.hasAttribute('type')) {
         elem.parentElement.childNodes.forEach(element => {
@@ -13,7 +13,7 @@ function highlight(elem) {
 
 }
 
-function clickMenu(event, props) {
+const clickMenu = (event, props) => {
     const { settingSizeField, settingMode, settingSymbol, playingField,
         mode, playerFirstSymbol, settingTurn, startNewGame, endGame } = props;
 

@@ -1,5 +1,4 @@
 
-import store from "./store"
 import settingSizeField from "./actionCreators/settingSizeField"
 import gameMove from "./actionCreators/gameMove"
 import settingMode from "./actionCreators/settingMode"
@@ -7,19 +6,19 @@ import newGame from "../redux/actionCreators/newGame"
 import settingPlayerSymbol from "../redux/actionCreators/settingPlayerSymbol"
 import settingTurn from "../redux/actionCreators/settingTurn"
 import endGame from "../redux/actionCreators/endGame"
-import setVictoryCells from "./actionCreators/setVictoryCells"
+import settingVictoryCells from "./actionCreators/settingVictoryCells"
 
-const mapDispatchToProps = () => {//добавить фильтр для отображения не всех данных
+const mapDispatchToProps = (dispatch) => {//добавить фильтр для отображения не всех данных
 
     return {
-        settingSizeField: (value) => store.dispatch(settingSizeField(value)),
-        settingMode: (value) => store.dispatch(settingMode(value)),
-        gameMove: (value) => store.dispatch(gameMove(value)),
-        startNewGame: () => store.dispatch(newGame()),
-        endGame: () => store.dispatch(endGame()),
-        settingSymbol: (value) => store.dispatch(settingPlayerSymbol(value)),
-        settingTurn: (value) => store.dispatch(settingTurn(value)),
-        setVictoryCells: (value) => store.dispatch(setVictoryCells(value))
+        settingSizeField: (value) => dispatch(settingSizeField(value)),
+        settingMode: (value) => dispatch(settingMode(value)),
+        gameMove: (value) => dispatch(gameMove(value)),
+        startNewGame: () => dispatch(newGame()),
+        endGame: () => dispatch(endGame()),
+        settingSymbol: (value) => dispatch(settingPlayerSymbol(value)),
+        settingTurn: (value) => dispatch(settingTurn(value)),
+        settingVictoryCells: (value) => dispatch(settingVictoryCells(value))
     }
 
 }

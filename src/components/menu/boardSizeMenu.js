@@ -1,6 +1,6 @@
 import boardSizeEnum from "../../enum/gameBoardSize"
 
-function BoardSize() {
+const BoardSize = () => {
     return (
         <div>
             <p className="text-uppercase">Select the board size</p>

@@ -6,7 +6,7 @@ import filledCellsNearby from "../../service/filledCellsNearby"
 import symbolEnum from "../../enum/gameSymbols"
 import winningLine from "../winningLine"
 import gameRules from "../../enum/gameRules"
-function AI(props, symbol) {
+const AI = (props, symbol) => {
     const gameRule = props.gameRule;
     const playingField = props.playingField;
     let moveOptions = [];

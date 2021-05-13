@@ -3,7 +3,7 @@ import rightPlane from "./winPlaneСheck/rightPlane"
 import horizontalPlane from "./winPlaneСheck/horizontalPlane"
 import verticalPlane from "./winPlaneСheck/verticalPlane"
 
-function winningLine(arr, index, symbol, gameRule) {
+const winningLine = (arr, index, symbol, gameRule) => {
 
     const arrLines = [
         leftPlane(arr, index, symbol, gameRule),

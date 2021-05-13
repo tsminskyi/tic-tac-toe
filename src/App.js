@@ -8,6 +8,8 @@ import GameSymbol from './components/menu/symbolMenu'
 import PlayingField from './components/field/playingField';
 import React from 'react'
 import clickMenu from "./event/clickMenu"
+import gameRules from "./enum/gameRules"
+import gameBoardSize from "./enum/gameBoardSize"
 
 const w = window.innerWidth;
 const h = window.innerHeight;
@@ -26,10 +28,15 @@ function App(props) {
     }
     else {
         return (
-            <div className="conteiner" style={{ width: size + "px", height: size + "px" }} onClick={(event)=>clickMenu(event,props)}>
+            <div className="conteiner" style={{ width: size + "px", height: size + "px" }} onClick={(event) => clickMenu(event, props)}>
                 <GameBoard />
                 <GameModes />
-                <GameSymbol mode={props.mode}/>
+                <GameSymbol mode={props.mode} />
+                <div className="conteiner__text">
+                    <p className="text-uppercase">rules</p>
+                    <p>{gameBoardSize.small}X{gameBoardSize.small} - need to place {gameRules.classic} identical symbols in a line</p>
+                    <p>{gameBoardSize.medium}X{gameBoardSize.medium} and {gameBoardSize.large}X{gameBoardSize.large} - need to place {gameRules.renju} and {gameRules.renjuHard} identical symbols in a line. The symbol can only be placed in the nearest empty cell around any already filled one.</p>
+                </div>
                 <button id="new_game" type="button" className="btn btn-danger">New Game</button>
             </div>
         )

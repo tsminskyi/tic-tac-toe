@@ -1,4 +1,4 @@
-function isEmpty(value) {
+const isEmpty = (value) => {
 
     switch (typeof value) {
 

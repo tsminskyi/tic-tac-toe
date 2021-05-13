@@ -1,6 +1,6 @@
 import symbolEnum from "../../enum/gameSymbols"
 
-function verticalWeightСell(arr, currentCellObj, symbol, gameRule) {
+const verticalWeightСell = (arr, currentCellObj, symbol, gameRule) => {
     let emptyСells = 0
     let filledСells = 0
     let opponentSymbol = null;
@@ -21,7 +21,7 @@ function verticalWeightСell(arr, currentCellObj, symbol, gameRule) {
             }
 
             if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex] === opponentSymbol) {
-                
+
                 break;
             }
 
@@ -48,7 +48,7 @@ function verticalWeightСell(arr, currentCellObj, symbol, gameRule) {
 
     }
 
-    return emptyСells + filledСells >= gameRule ? (100 * filledСells / (emptyСells + filledСells))+filledСells : 0
+    return emptyСells + filledСells >= gameRule ? (100 * filledСells / (emptyСells + filledСells)) + filledСells : 0
 }
 
 export default verticalWeightСell

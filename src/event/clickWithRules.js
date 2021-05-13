@@ -3,7 +3,7 @@ import gameMode from "../enum/gameMode"
 import filledCellsNearby from "../service/filledCellsNearby"
 import registrationMove from "./registrationMove"
 
-function clickWithRules(event, props) {
+const clickWithRules = (event, props) => {
     const { isFirstPlayer, gameRule, victoryCells, mode, isFirstClick } = props;
     const playingField = props.playingField;
 

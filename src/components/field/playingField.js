@@ -3,14 +3,16 @@ import mapStateToProps from '../../redux/mapStateToProps'
 import mapDispatchToProps from '../../redux/mapDispatchToProps'
 import FieldСell from "./fieldСell"
 import InfoMenu from "../menu/infoMenu"
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import AI_move from "../../logic/AI/AI_move"
 import clickWithRules from "../../event/clickWithRules"
+
+
 const w = window.innerWidth;
 const h = window.innerHeight;
 const size = w > h ? h * 0.9 : w * 0.9
 
-function PlayingField(props) {
+const PlayingField = (props) => {
     const { playingField, victoryCells, isFirstPlayer } = props;
 
     let widthCell = Math.fround(100 / playingField[0].length);
@@ -19,9 +21,8 @@ function PlayingField(props) {
     useEffect(() => setTimeout(() => AI_move(props), 500), [isFirstPlayer]);
 
 
-
     return (
-        <div className="conteiner__game" style={{ width: size + "px", height: size + "px" }}>
+        <div style={{ width: size + "px", height: size + "px" }}>
             <InfoMenu />
             <div className="conteiner__playing-field" onClick={(event) => clickWithRules(event, props)}>
 
