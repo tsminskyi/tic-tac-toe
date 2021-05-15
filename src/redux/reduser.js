@@ -1,11 +1,13 @@
 import symbolEnum from "../enum/gameSymbols"
 import ruleEnum from "../enum/gameRules"
 import boardSizeEnum from "../enum/gameBoardSize"
+import * as actionType  from "./action-types"
+
 const reducer = function (state, action) {
 
     switch (action.type) {
 
-        case "SETTING_SIZE_FIELD": {
+        case actionType.SETTING_SIZE_FIELD: {
 
             let value = symbolEnum.emptiness;
             let arr = new Array(Number(action.payload)).fill(new Array(Number(action.payload)).fill(value));
@@ -21,7 +23,7 @@ const reducer = function (state, action) {
             }
         }
 
-        case "GAME_MOVE": {
+        case actionType.GAME_MOVE: {
 
             let newfieldValue = JSON.parse(JSON.stringify(state.playingField))
             let changeSymbol = null;
@@ -32,19 +34,19 @@ const reducer = function (state, action) {
             }
         }
 
-        case "SETTING_MODE": {
+        case actionType.SETTING_MODE: {
             return {
                 ...state, mode: action.payload
             }
         }
 
-        case "SETTING_TURN": {
+        case actionType.SETTING_TURN: {
             return {
                 ...state, isFirstPlayer: action.payload
             }
         }
 
-        case "SETTING_PLAYER_SYMBOL": {
+        case actionType.SETTING_PLAYER_SYMBOL: {
             if (action.payload == null) {
                 return {
                     ...state, playerFirstSymbol: symbolEnum.cross, playerSecondSymbol: symbolEnum.zero
@@ -56,19 +58,19 @@ const reducer = function (state, action) {
             }
         }
 
-        case "NEW_GAME": {
+        case actionType.NEW_GAME: {
             return {
                 ...state, stateGame: action.payload
             }
         }
 
-        case "SETTING_VICTORY_CELL": {
+        case actionType.SETTING_VICTORY_CELL: {
             return {
                 ...state, victoryCells: action.payload
             }
         }
 
-        case "END_GAME": {
+        case actionType.END_GAME: {
             return {
                 stateGame: action.payload, isFirstClick: true, victoryCells: null
             }

@@ -1,6 +1,6 @@
 import symbolEnum from "../../../enum/gameSymbols"
 
-const leftWeightСell=(arr, currentCellObj, symbol, gameRule)=> {
+const leftWeightСell = (arr, currentCellObj, symbol, gameRule) => {
 
     let emptyСells = 0
     let filledСells = 0
@@ -53,7 +53,7 @@ const leftWeightСell=(arr, currentCellObj, symbol, gameRule)=> {
         }
 
     }
-    return emptyСells + filledСells >= gameRule ? (100 * filledСells / (emptyСells + filledСells))+filledСells : 0
+    return emptyСells + filledСells >= gameRule ? (100 * filledСells / gameRule) + filledСells : 0
 }
 
 export default leftWeightСell

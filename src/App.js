@@ -1,7 +1,5 @@
 import './App.css'
 import { connect } from 'react-redux';
-import mapStateToProps from './redux/mapStateToProps';
-import mapDispatchToProps from './redux/mapDispatchToProps';
 import GameBoard from './components/menu/BoardSizeMenu';
 import GameModes from './components/menu/GameModes';
 import GameSymbol from './components/menu/SymbolsMenu'
@@ -10,7 +8,7 @@ import React from 'react'
 import clickMenu from "./service/event/clickMenu"
 import gameRules from "./enum/gameRules"
 import gameBoardSize from "./enum/gameBoardSize"
-
+import * as action from "./redux/action"
 
 
 function App(props) {
@@ -42,6 +40,28 @@ function App(props) {
             </div>
         )
 
+    }
+
+}
+const mapStateToProps = (state) => {
+    return {
+        mode: state.mode,
+        stateGame: state.stateGame,
+        playingField: state.playingField,
+        playerFirstSymbol:state.playerFirstSymbol
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+        settingSizeField: (value) => dispatch(action.settingSizeField(value)),
+        settingMode: (value) => dispatch(action.settingMode(value)),
+        startNewGame: () => dispatch(action.newGame()),
+        endGame: () => dispatch(action.endGame()),
+        settingSymbol: (value) => dispatch(action.settingPlayerSymbol(value)),
+        settingTurn: (value) => dispatch(action.settingTurn(value)),
+        settingVictoryCells: (value) => dispatch(action.settingVictoryCells(value))
     }
 
 }

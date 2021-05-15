@@ -48,7 +48,7 @@ const verticalWeightСell = (arr, currentCellObj, symbol, gameRule) => {
 
     }
 
-    return emptyСells + filledСells >= gameRule ? (100 * filledСells / (emptyСells + filledСells)) + filledСells : 0
+    return emptyСells + filledСells >= gameRule ? (100 * filledСells / gameRule) + filledСells : 0
 }
 
 export default verticalWeightСell

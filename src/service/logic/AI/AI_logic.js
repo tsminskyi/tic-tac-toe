@@ -56,7 +56,6 @@ const AI = (props, symbol) => {
     }
     moveOptions.sort((a, b) => { return b.weigh - a.weigh });
     moveOptionsOpponent.sort((a, b) => { return b.weigh - a.weigh });
-
     return moveOptions[0].weigh < moveOptionsOpponent[0].weigh ? moveOptionsOpponent[0] : moveOptions[0]
 }
 export default AI;

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import mapStateToProps from '../../redux/mapStateToProps'
-import mapDispatchToProps from '../../redux/mapDispatchToProps'
 import isMove from "../../service/isMove"
 import ResultMenu from './ResultMenu'
 import clickMenu from "../../service/event/clickMenu"
 import TimeMenu from "./TimeMenu"
+import * as action from "../../redux/action"
+
 const InfoMenu = (props) => {
     const {
         isFirstPlayer, playerFirstSymbol, playerSecondSymbol,
@@ -26,6 +26,32 @@ const InfoMenu = (props) => {
 
     )
 
+}
+
+const mapStateToProps = (state) => {
+    return {
+        isFirstPlayer: state.isFirstPlayer,
+        playerFirstSymbol: state.playerFirstSymbol,
+        playerSecondSymbol: state.playerSecondSymbol,
+        victoryCells: state.victoryCells,
+        playingField:state.playingField,
+        mode:state.mode
+    }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+        settingSizeField: (value) => dispatch(action.settingSizeField(value)),
+        settingMode: (value) => dispatch(action.settingMode(value)),
+        startNewGame: () => dispatch(action.newGame()),
+        endGame: () => dispatch(action.endGame()),
+        settingSymbol: (value) => dispatch(action.settingPlayerSymbol(value)),
+        settingTurn: (value) => dispatch(action.settingTurn(value)),
+        settingVictoryCells: (value) => dispatch(action.settingVictoryCells(value))
+    }
+    
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(InfoMenu);

@@ -1,6 +1,7 @@
 import gameMode from "../../../enum/gameMode"
 import AI_logic from "./AI_logic"
 import registrationMove from "../../event/registrationMove"
+import isMove from "../../isMove"
 const AI_move = (props) => {
 
     const {
@@ -15,8 +16,7 @@ const AI_move = (props) => {
 
 
         let move = AI_logic(props, currentSymbol);
-        if (move != null && victoryCells == null) {
-
+        if (isMove(props.playingField) && victoryCells == null) {
             registrationMove(props, move)
         }
 
@@ -26,7 +26,7 @@ const AI_move = (props) => {
         if (!isFirstPlayer) {
 
             let move = AI_logic(props, playerSecondSymbol);
-            if (move != null && victoryCells == null) {
+            if (isMove(props.playingField) && victoryCells == null) {
 
                 registrationMove(props, move)
             }
