@@ -1,6 +1,6 @@
-import gameBoardSize from "../enum/gameBoardSize"
-import gameMode from "../enum/gameMode"
-import gameSymbols from "../enum/gameSymbols"
+import gameBoardSize from "../../enum/gameBoardSize"
+import gameMode from "../../enum/gameMode"
+import gameSymbols from "../../enum/gameSymbols"
 
 const highlight = (elem) => {
 
@@ -41,8 +41,8 @@ const clickMenu = (event, props) => {
             break;
         case "new_game": {
             if (playingField != null && mode != null && playerFirstSymbol != null) {
-                let setTurn = Math.floor(Math.random() * 2);
-                settingTurn(Boolean(setTurn));
+                let setTurn = playerFirstSymbol === gameSymbols.cross ? true : false
+                settingTurn(setTurn);
                 startNewGame();
             }
             break;

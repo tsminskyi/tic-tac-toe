@@ -1,4 +1,4 @@
-import modeEnum from "../../enum/gameMode"
+import gameMode from "../../../enum/gameMode"
 import AI_logic from "./AI_logic"
 import registrationMove from "../../event/registrationMove"
 const AI_move = (props) => {
@@ -9,7 +9,7 @@ const AI_move = (props) => {
         victoryCells } = props;
 
 
-    if (mode === modeEnum.eve) {
+    if (mode === gameMode.eve) {
 
         let currentSymbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol
 
@@ -21,7 +21,7 @@ const AI_move = (props) => {
         }
 
     }
-    if (mode === modeEnum.pve) {
+    if (mode === gameMode.pve) {
 
         if (!isFirstPlayer) {
 

@@ -3,7 +3,7 @@ import mapStateToProps from '../../redux/mapStateToProps'
 import mapDispatchToProps from '../../redux/mapDispatchToProps'
 import isMove from "../../service/isMove"
 import ResultMenu from './ResultMenu'
-import clickMenu from "../../event/clickMenu"
+import clickMenu from "../../service/event/clickMenu"
 import TimeMenu from "./TimeMenu"
 const InfoMenu = (props) => {
     const {

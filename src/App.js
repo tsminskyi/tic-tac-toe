@@ -7,7 +7,7 @@ import GameModes from './components/menu/GameModes';
 import GameSymbol from './components/menu/SymbolsMenu'
 import PlayingField from './components/field/PlayingField';
 import React from 'react'
-import clickMenu from "./event/clickMenu"
+import clickMenu from "./service/event/clickMenu"
 import gameRules from "./enum/gameRules"
 import gameBoardSize from "./enum/gameBoardSize"
 

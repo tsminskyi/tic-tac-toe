@@ -4,8 +4,8 @@ import mapDispatchToProps from '../../redux/mapDispatchToProps'
 import FieldСell from "./FieldCell"
 import InfoMenu from "../menu/InfoMenu"
 import { useEffect } from 'react';
-import AI_move from "../../logic/AI/AI_move"
-import clickWithRules from "../../event/clickWithRules"
+import AI_move from "../../service/logic/AI/AI_move"
+import clickWithRules from "../../service/event/clickWithRules"
 import gameMode from "../../enum/gameMode"
 const PlayingField = (props) => {
 

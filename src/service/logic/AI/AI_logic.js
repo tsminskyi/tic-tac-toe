@@ -2,10 +2,10 @@ import horizontalWeightСell from "./horizontalWeightСell";
 import verticalWeightСell from "./verticalWeightСell";
 import leftWeightСell from "./leftWeightСell";
 import rightWeightСell from "./rightWeightСell";
-import filledCellsNearby from "../../service/filledCellsNearby"
-import symbolEnum from "../../enum/gameSymbols"
+import filledCellsNearby from "../../filledCellsNearby"
+import gameSymbols from "../../../enum/gameSymbols"
 import winningLine from "../winningLine"
-import gameRules from "../../enum/gameRules"
+import gameRules from "../../../enum/gameRules"
 const AI = (props, symbol) => {
     const gameRule = props.gameRule;
     const playingField = props.playingField;
@@ -14,10 +14,10 @@ const AI = (props, symbol) => {
     for (let i = 0; i < playingField.length; i++) {
 
         for (let x = 0; x < playingField.length; x++) {
-            if (playingField[i][x] === symbolEnum.emptiness) {
+            if (playingField[i][x] === gameSymbols.emptiness) {
                 let currentCellObj = { rowIndex: i, collIndex: x }
                 let symbolOpponent = null;
-                symbol === symbolEnum.cross ? symbolOpponent = symbolEnum.zero : symbolOpponent = symbolEnum.cross
+                symbol === gameSymbols.cross ? symbolOpponent = gameSymbols.zero : symbolOpponent = gameSymbols.cross
 
                 if (filledCellsNearby(currentCellObj, playingField) || gameRule === gameRules.classic) {
                     let win = winningLine(playingField, currentCellObj, symbol, gameRule);

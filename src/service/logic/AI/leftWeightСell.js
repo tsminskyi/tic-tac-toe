@@ -1,4 +1,4 @@
-import symbolEnum from "../../enum/gameSymbols"
+import symbolEnum from "../../../enum/gameSymbols"
 
 const leftWeightСell=(arr, currentCellObj, symbol, gameRule)=> {
 

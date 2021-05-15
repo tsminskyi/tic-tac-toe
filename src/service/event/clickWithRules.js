@@ -1,6 +1,6 @@
-import gameRules from "../enum/gameRules"
-import gameMode from "../enum/gameMode"
-import filledCellsNearby from "../service/filledCellsNearby"
+import gameRules from "../../enum/gameRules"
+import gameMode from "../../enum/gameMode"
+import filledCellsNearby from "../filledCellsNearby"
 import registrationMove from "./registrationMove"
 
 const clickWithRules = (event, props) => {
