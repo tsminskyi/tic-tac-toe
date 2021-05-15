@@ -1,13 +1,13 @@
 import circle from "../../img/circle-regular.svg"
 import times from "../../img/times-solid.svg"
-import symbolEnum from "../../enum/gameSymbols"
+import gameSymbols from "../../enum/gameSymbols"
 
-const FieldСell = (props) => {
+const FieldCell = (props) => {
     const { style, value, index } = props;
-    const img = value === symbolEnum.zero ? circle : times;
+    const img = value === gameSymbols.zero ? circle : times;
     const id = `${index.rowIndex}.${index.collIndex}`;
 
-    if (value !== symbolEnum.emptiness) {
+    if (value !== gameSymbols.emptiness) {
 
 
         return (
@@ -25,4 +25,4 @@ const FieldСell = (props) => {
 
 }
 
-export default FieldСell;
+export default FieldCell;

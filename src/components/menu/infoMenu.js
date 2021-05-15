@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 import mapStateToProps from '../../redux/mapStateToProps'
 import mapDispatchToProps from '../../redux/mapDispatchToProps'
 import isMove from "../../service/isMove"
-import ResultMenu from './resultMenu'
+import ResultMenu from './ResultMenu'
 import clickMenu from "../../event/clickMenu"
-import TimeMenu from "./timeMenu"
+import TimeMenu from "./TimeMenu"
 const InfoMenu = (props) => {
     const {
         isFirstPlayer, playerFirstSymbol, playerSecondSymbol,

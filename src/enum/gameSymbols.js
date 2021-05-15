@@ -1,2 +1,2 @@
-const symbolEnum = Object.freeze({cross: "X", zero: "O", emptiness: " "});
-export default  symbolEnum
+const gameSymbols = Object.freeze({cross: "X", zero: "O", emptiness: " "});
+export default  gameSymbols

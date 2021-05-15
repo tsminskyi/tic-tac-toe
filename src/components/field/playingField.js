@@ -1,24 +1,27 @@
 import { connect } from 'react-redux'
 import mapStateToProps from '../../redux/mapStateToProps'
 import mapDispatchToProps from '../../redux/mapDispatchToProps'
-import FieldСell from "./fieldСell"
-import InfoMenu from "../menu/infoMenu"
+import FieldСell from "./FieldCell"
+import InfoMenu from "../menu/InfoMenu"
 import { useEffect } from 'react';
 import AI_move from "../../logic/AI/AI_move"
 import clickWithRules from "../../event/clickWithRules"
-
-
-const w = window.innerWidth;
-const h = window.innerHeight;
-const size = w > h ? h * 0.9 : w * 0.9
-
+import gameMode from "../../enum/gameMode"
 const PlayingField = (props) => {
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const size = w > h ? h * 0.9 : w * 0.9
     const { playingField, victoryCells, isFirstPlayer } = props;
 
     let widthCell = Math.fround(100 / playingField[0].length);
     let color = 'transparent'
 
-    useEffect(() => setTimeout(() => AI_move(props), 500), [isFirstPlayer]);
+    useEffect(() => {
+        if (props.mode !== gameMode.pvp) {
+            setTimeout(() => AI_move(props), 500)
+        }
+    }, [isFirstPlayer]);
 
 
     return (

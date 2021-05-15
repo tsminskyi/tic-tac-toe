@@ -49,7 +49,7 @@ const AI = (props, symbol) => {
         }
 
     }
-    if (moveOptions.length < 1) {
+    if (moveOptions.length < 1 || props.isFirstClick) {
 
         return { rowIndex: Math.floor(Math.random() * playingField.length), collIndex: Math.floor(Math.random() * playingField.length) };
 

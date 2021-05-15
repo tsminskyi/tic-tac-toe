@@ -1,13 +1,13 @@
-import boardSizeEnum from "../../enum/gameBoardSize"
+import gameBoardSize from "../../enum/gameBoardSize"
 
-const BoardSize = () => {
+const BoardSizeMenu = () => {
     return (
         <div>
             <p className="text-uppercase">Select the board size</p>
             <div className="btn-group">
-                <button id={boardSizeEnum.small} type="button" className="btn btn-secondary"> {boardSizeEnum.small} X {boardSizeEnum.small}</button>
-                <button id={boardSizeEnum.medium} type="button" className="btn btn-secondary">{boardSizeEnum.medium} X {boardSizeEnum.medium}</button>
-                <button id={boardSizeEnum.large} type="button" className="btn btn-secondary">{boardSizeEnum.large} X {boardSizeEnum.large}</button>
+                <button id={gameBoardSize.small} type="button" className="btn btn-secondary"> {gameBoardSize.small} X {gameBoardSize.small}</button>
+                <button id={gameBoardSize.medium} type="button" className="btn btn-secondary">{gameBoardSize.medium} X {gameBoardSize.medium}</button>
+                <button id={gameBoardSize.large} type="button" className="btn btn-secondary">{gameBoardSize.large} X {gameBoardSize.large}</button>
             </div>
         </div>
 
@@ -15,4 +15,4 @@ const BoardSize = () => {
 
 }
 
-export default BoardSize;
+export default BoardSizeMenu;

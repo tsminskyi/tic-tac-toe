@@ -2,21 +2,22 @@ import './App.css'
 import { connect } from 'react-redux';
 import mapStateToProps from './redux/mapStateToProps';
 import mapDispatchToProps from './redux/mapDispatchToProps';
-import GameBoard from './components/menu/boardSizeMenu';
-import GameModes from './components/menu/modeMenu';
-import GameSymbol from './components/menu/symbolMenu'
-import PlayingField from './components/field/playingField';
+import GameBoard from './components/menu/BoardSizeMenu';
+import GameModes from './components/menu/GameModes';
+import GameSymbol from './components/menu/SymbolsMenu'
+import PlayingField from './components/field/PlayingField';
 import React from 'react'
 import clickMenu from "./event/clickMenu"
 import gameRules from "./enum/gameRules"
 import gameBoardSize from "./enum/gameBoardSize"
 
-const w = window.innerWidth;
-const h = window.innerHeight;
-const size = w > h ? h * 0.9 : w * 0.9
 
 
 function App(props) {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const size = w > h ? h * 0.9 : w * 0.9
+
 
     if (props.stateGame) {
         return (

@@ -1,6 +1,6 @@
 import gameSymbols from "../../enum/gameSymbols"
 import gameMode from "../../enum/gameMode"
-const GameSymbol = (props) => {
+const SymbolsMenu = (props) => {
 
     if (props.mode === gameMode.eve) {
         document.querySelector(`#${gameSymbols.cross}`).classList.remove("btn-info")
@@ -27,4 +27,4 @@ const GameSymbol = (props) => {
 
 }
 
-export default GameSymbol;
+export default SymbolsMenu;
