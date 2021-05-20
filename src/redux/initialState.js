@@ -10,5 +10,5 @@ const initialSate = {
     victoryCells: null,
     isFirstClick: true
 
-}
+};
 export default initialSate;

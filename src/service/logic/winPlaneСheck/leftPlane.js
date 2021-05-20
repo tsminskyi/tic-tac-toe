@@ -4,13 +4,14 @@ const leftPlane = (arr, currentCellObj, symbol, size) => {
 
     for (let i = 1; i < size; i++) {
 
-
         if (currentCellObj.rowIndex - i >= 0 && currentCellObj.collIndex - i >= 0) {
 
             if (arr[currentCellObj.rowIndex - i][currentCellObj.collIndex - i] === symbol) {
 
-                indArr.push({ rowIndex: currentCellObj.rowIndex - i, collIndex: currentCellObj.collIndex - i })
+                indArr.push({ rowIndex: currentCellObj.rowIndex - i, collIndex: currentCellObj.collIndex - i });
+
             } else break;
+
         }
 
     }
@@ -22,7 +23,7 @@ const leftPlane = (arr, currentCellObj, symbol, size) => {
 
             if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex + i] === symbol) {
 
-                indArr.push({ rowIndex: currentCellObj.rowIndex + i, collIndex: currentCellObj.collIndex + i })
+                indArr.push({ rowIndex: currentCellObj.rowIndex + i, collIndex: currentCellObj.collIndex + i });
 
             } else break;
 
@@ -30,6 +31,7 @@ const leftPlane = (arr, currentCellObj, symbol, size) => {
 
     }
     return indArr;
-}
 
-export default leftPlane
+};
+
+export default leftPlane;

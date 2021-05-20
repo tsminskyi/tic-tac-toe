@@ -1,29 +1,31 @@
-import symbolEnum from "../../../enum/gameSymbols"
+import symbolEnum from '../../../enum/gameSymbols';
 
 const horizontalWeightСell = (arr, currentCellObj, symbol, gameRule) => {
-    let emptyСells = 0
-    let filledСells = 0
-    let opponentSymbol = null;
-    symbol === symbolEnum.zero ? opponentSymbol = symbolEnum.cross : opponentSymbol = symbolEnum.zero
+
+    let emptyСells = 0;
+    let filledСells = 0;
+    const opponentSymbol = symbol === symbolEnum.zero ? symbolEnum.cross : symbolEnum.zero;
 
     for (let i = 1; i < arr.length; i++) {
-
 
         if (currentCellObj.collIndex + i < arr.length) {
 
             if (arr[currentCellObj.rowIndex][currentCellObj.collIndex + i] === symbol) {
 
-                filledСells++;
+                filledСells += 1;
+
             }
 
             if (arr[currentCellObj.rowIndex][currentCellObj.collIndex + i] === symbolEnum.emptiness) {
 
-                emptyСells++;
+                emptyСells += 1;
+
             }
 
             if (arr[currentCellObj.rowIndex][currentCellObj.collIndex + i] === opponentSymbol) {
 
                 break;
+
             }
 
         }
@@ -36,23 +38,28 @@ const horizontalWeightСell = (arr, currentCellObj, symbol, gameRule) => {
 
             if (arr[currentCellObj.rowIndex][currentCellObj.collIndex - i] === symbol) {
 
-                filledСells++;
+                filledСells += 1;
+
             }
 
             if (arr[currentCellObj.rowIndex][currentCellObj.collIndex - i] === symbolEnum.emptiness) {
 
-                emptyСells++;
+                emptyСells += 1;
+
             }
 
             if (arr[currentCellObj.rowIndex][currentCellObj.collIndex - i] === opponentSymbol) {
 
                 break;
+
             }
+
         }
 
     }
 
-    return emptyСells + filledСells >= gameRule ? (100 * filledСells / gameRule) + filledСells : 0
-}
+    return emptyСells + filledСells >= gameRule ? ((100 * filledСells) / gameRule) + filledСells : 0;
 
-export default horizontalWeightСell
+};
+
+export default horizontalWeightСell;

@@ -1,6 +1,6 @@
-import { createStore } from "redux";
-import reducer  from "./reduser";
-import initialSate from "../redux/initialState"
+import { createStore } from 'redux';
+import reducer from './reducer';
+import initialSate from './initialState';
 
 const store = createStore(reducer, initialSate);
 

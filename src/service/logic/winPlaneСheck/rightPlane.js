@@ -4,13 +4,12 @@ const rightPlane = (arr, currentCellObj, symbol, size) => {
 
     for (let i = 1; i < size; i++) {
 
-
         if (currentCellObj.rowIndex - i >= 0
             && currentCellObj.collIndex + i < arr[currentCellObj.rowIndex - i].length) {
 
             if (arr[currentCellObj.rowIndex - i][currentCellObj.collIndex + i] === symbol) {
 
-                indArr.push({ rowIndex: currentCellObj.rowIndex - i, collIndex: currentCellObj.collIndex + i })
+                indArr.push({ rowIndex: currentCellObj.rowIndex - i, collIndex: currentCellObj.collIndex + i });
 
             } else break;
 
@@ -25,7 +24,7 @@ const rightPlane = (arr, currentCellObj, symbol, size) => {
 
             if (arr[currentCellObj.rowIndex + i][currentCellObj.collIndex - i] === symbol) {
 
-                indArr.push({ rowIndex: currentCellObj.rowIndex + i, collIndex: currentCellObj.collIndex - i })
+                indArr.push({ rowIndex: currentCellObj.rowIndex + i, collIndex: currentCellObj.collIndex - i });
 
             } else break;
 
@@ -34,6 +33,7 @@ const rightPlane = (arr, currentCellObj, symbol, size) => {
     }
 
     return indArr;
-}
 
-export default rightPlane
+};
+
+export default rightPlane;
