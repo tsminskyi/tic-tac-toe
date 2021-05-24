@@ -10,19 +10,19 @@ const winningLine = (arr, index, symbol, gameRule) => {
         rightPlane(arr, index, symbol, gameRule),
         horizontalPlane(arr, index, symbol, gameRule),
         verticalPlane(arr, index, symbol, gameRule)];
-    let winIndex = [];
+    let winIndexLine = [];
     arrLines.forEach((element) => {
 
         if (element.length >= gameRule - 1) {
 
-            winIndex = winIndex.concat(element);
+            winIndexLine = winIndexLine.concat(element);
 
         }
 
     });
-    winIndex = winIndex.concat(index);
+    winIndexLine = winIndexLine.concat(index);
 
-    return winIndex.length >= gameRule - 1 ? winIndex : null;
+    return winIndexLine.length >= gameRule ? winIndexLine : null;
 
 };
 export default winningLine;

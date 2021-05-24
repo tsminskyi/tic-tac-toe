@@ -15,9 +15,9 @@ const moveAI = (props) => {
 
         const currentSymbol = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol;
 
-        const move = logicAI(props, currentSymbol);
         if (isMove(props.playingField) && victoryCells == null) {
 
+            const move = logicAI(props, currentSymbol);
             registrationMove(props, move);
 
         }
@@ -27,9 +27,9 @@ const moveAI = (props) => {
 
         if (!isFirstPlayer) {
 
-            const move = logicAI(props, playerSecondSymbol);
             if (isMove(props.playingField) && victoryCells == null) {
 
+                const move = logicAI(props, playerSecondSymbol);
                 registrationMove(props, move);
 
             }
