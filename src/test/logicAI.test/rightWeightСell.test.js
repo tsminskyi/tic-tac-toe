@@ -29,7 +29,7 @@ const gameRule = 5;
 const expectReturnCase = { rowIndex: 4, collIndex: 10, weigh: 63 };
 test('the function should return a best index for the move - X', () => {
 
-    expect(filledCellsNearby(expectReturnCase, playingField)).not.toBe(false);
+    expect(filledCellsNearby(expectReturnCase, playingField)).toBe(true);
     expect(horizontalWeightСell(playingField, expectReturnCase, symbol, gameRule)).toEqual(21);
     expect(verticalWeightСell(playingField, expectReturnCase, symbol, gameRule)).toEqual(0);
     expect(leftWeightСell(playingField, expectReturnCase, symbol, gameRule)).toEqual(0);
