@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 const TimeMenu = (props) => {
 
-    const { victory, emptyСells } = props;
+    const { victory, emptyCells } = props;
     const [time, setTime] = useState(0);
     const [startTime] = useState(new Date().getTime());
 
     setTimeout(() => {
 
-        if (emptyСells && !victory) {
+        if (emptyCells && !victory) {
 
             setTime(new Date().getTime() - startTime);
 

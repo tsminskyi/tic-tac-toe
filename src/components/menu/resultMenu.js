@@ -2,14 +2,14 @@ import React from 'react';
 
 const ResultMenu = (props) => {
 
-    const { victory, emptyСells, turn } = props;
+    const { victory, emptyCells, turn } = props;
     let result = '';
     if (victory) {
 
         result = `WIN ${turn}`;
 
     }
-    if (!emptyСells) {
+    if (!emptyCells) {
 
         result = 'nobody won';
 
@@ -17,7 +17,7 @@ const ResultMenu = (props) => {
     const getClassName = () => {
 
         const baseClass = 'conteiner__resultMenu';
-        if (victory || !emptyСells) return baseClass;
+        if (victory || !emptyCells) return baseClass;
         return `${baseClass} hidden`;
 
     };
