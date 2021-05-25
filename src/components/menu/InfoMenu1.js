@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import isMove from '../../service/isMove';
-import ResultMenu from './ResultMenu';
+import ResultMenu from './ResultMenu1';
 import clickMenu from '../../service/event/clickMenu';
-import TimeMenu from './TimeMenu';
+import TimeMenu from './TimeMenu1';
 import * as action from '../../redux/action';
 
 const InfoMenu = (props) => {
