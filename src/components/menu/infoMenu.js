@@ -13,7 +13,7 @@ const InfoMenu = (props) => {
     } = props;
 
     const turn = isFirstPlayer ? playerFirstSymbol : playerSecondSymbol;
-    const emptyСells = isMove(playingField);
+    const emptyCells = isMove(playingField);
     const victory = victoryCells !== null;
 
     return (
@@ -22,9 +22,9 @@ const InfoMenu = (props) => {
             <div className='conteiner__menu'>
                 <button id='back' type='button' className='btn btn-secondary'>Back</button>
                 <div className='text-uppercase'>turn: {turn}</div>
-                <TimeMenu victory={victory} emptyСells={emptyСells} />
+                <TimeMenu victory={victory} emptyCells={emptyCells} />
             </div>
-            <ResultMenu turn={turn} victory={victory} emptyСells={emptyСells} />
+            <ResultMenu turn={turn} victory={victory} emptyCells={emptyCells} />
         </div>
 
     );
